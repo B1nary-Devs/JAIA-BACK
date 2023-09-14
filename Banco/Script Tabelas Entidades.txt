@@ -1,0 +1,39 @@
+CREATE TABLE Prestador (
+    CNPJ VARCHAR2(14) ,
+    email VARCHAR2(100) CONSTRAINT UQ_Prestador_Email UNIQUE,
+    senha VARCHAR2(150),
+    prestador_nome VARCHAR2(100),
+    categoria_nome VARCHAR2(100) NOT NULL,
+    CONSTRAINT PK_CNPJ_PRESTADOR PRIMARY KEY (CNPJ)
+   
+);
+
+
+CREATE TABLE Categoria (
+    categoria_nome VARCHAR2(100), 
+    CONSTRAINT PK_CATEGORIA_NOME PRIMARY KEY (CATEGORIA_NOME)
+   
+);
+
+
+ALTER TABLE PRESTADOR ADD CONSTRAINT FK_Prestador_Categoria 
+FOREIGN KEY (categoria_nome) REFERENCES Categoria (categoria_nome)
+
+
+CREATE TABLE Checklist (
+    checklist_id VARCHAR2(150),
+    checklist_nome VARCHAR2(150)
+    CONSTRAINT PK_CHECKLIST_ID PRIMARY KEY (CHECKLIST_ID)
+);
+
+
+
+CREATE TABLE RelacaoCategoriaChecklist (
+    categoria_nome VARCHAR2(100),
+    checklist_id VARCHAR2(150),
+    CONSTRAINT FK_RelacaoCategoriaChecklist_Categoria FOREIGN KEY (categoria_nome) 
+    REFERENCES Categoria (categoria_nome),
+    CONSTRAINT FK_RelacaoCategoriaChecklist_Checklist
+    FOREIGN KEY (checklist_id) REFERENCES Checklist (checklist_id)
+);
+
