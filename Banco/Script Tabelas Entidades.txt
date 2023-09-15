@@ -29,13 +29,10 @@ CREATE TABLE Checklist (
 
 
 CREATE TABLE RelacaoCategoriaChecklist (
-    categoria_nome NUMBER,
-    checklist_id VARCHAR2(150),
-
+    categoria_nome VARCHAR2(100),
+    checklist_id NUMBER,
     CONSTRAINT FK_RelacaoCategoriaChecklist_Categoria FOREIGN KEY (categoria_nome) 
     REFERENCES Categoria (categoria_nome),
-
     CONSTRAINT FK_RelacaoCategoriaChecklist_Checklist
     FOREIGN KEY (checklist_id) REFERENCES Checklist (checklist_id)
 );
-
