@@ -8,27 +8,27 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table( name = "Prestador" )
+@Table( name = "PRESTADOR" )
 public class PrestadorServico{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CNPJ")
-    private Long cnpj;
+    private String cnpj;
 
-    @Column(name = "email")
+    @Column(name = "EMAIL")
     private String email;
 
-    @Column(name = "senha")
+    @Column(name = "SENHA")
     private String senha;
 
-    @Column(name = "prestador_nome")
+    @Column(name = "PRESTADOR_NOME")
     private String prestador_nome;
 
-    @Column(name = "categoria_nome")
+    @Column(name = "CATEGORIA_NOME")
     private String categoria_nome;
 
-    public PrestadorServico(Long cnpj, String email, String senha, String prestador_nome, String categoria_nome){
+    public PrestadorServico(String cnpj, String email, String senha, String prestador_nome, String categoria_nome){
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
@@ -39,11 +39,11 @@ public class PrestadorServico{
     public PrestadorServico(){
     }
 
-    public Long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

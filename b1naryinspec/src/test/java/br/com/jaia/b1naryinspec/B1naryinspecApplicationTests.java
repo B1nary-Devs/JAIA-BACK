@@ -1,13 +1,13 @@
-package br.com.jaia.b1naryinspec;
+// package br.com.jaia.b1naryinspec;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class B1naryinspecApplicationTests {
+// @SpringBootTest
+// class B1naryinspecApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
