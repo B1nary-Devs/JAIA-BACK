@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class B1naryinspecApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(B1naryinspecApplication.class, args);
 	}
 
