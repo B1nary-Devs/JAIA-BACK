@@ -1,0 +1,37 @@
+CREATE TABLE Prestador (
+    prestador_id NUMBER,
+    CNPJ VARCHAR2(14) CONSTRAINT UQ_Prestador_CNPJ UNIQUE,
+    email VARCHAR2(100) CONSTRAINT UQ_Prestador_Email UNIQUE,
+    senha VARCHAR2(150),
+    prestador_nome VARCHAR2(100),
+    categoria_id NUMBER,
+    CONSTRAINT PK_ID_PRESTADOR PRIMARY KEY (prestador_id) 
+);
+
+CREATE TABLE Categoria (
+    categoria_id NUMBER,
+    categoria_nome VARCHAR2(100)  CONSTRAINT UQ_Categoria_NOME UNIQUE, 
+    CONSTRAINT PK_CATEGORIA_NOME PRIMARY KEY (categoria_id)
+);
+
+
+CREATE SEQUENCE AUTOINCREMENT_CHECKLIST_ID
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TABLE Checklist (
+    checklist_id NUMBER DEFAULT AUTOINCREMENT_CHECKLIST_ID.NEXTVAL,
+    checklist_nome VARCHAR2(150),
+    CONSTRAINT PK_CHECKLIST_ID PRIMARY KEY (CHECKLIST_ID)
+);
+
+CREATE TABLE RelacaoCategoriaChecklist (
+    categoria_id VARCHAR2(150),
+    checklist_id NUMBER,
+    CONSTRAINT FK_RelacaoCategoriaChecklist_Categoria FOREIGN KEY (categoria_id) 
+    REFERENCES Categoria (categoria_id),
+    CONSTRAINT FK_RelacaoCategoriaChecklist_Checklist
+    FOREIGN KEY (checklist_id) REFERENCES Checklist (checklist_id)
+);
+
+
