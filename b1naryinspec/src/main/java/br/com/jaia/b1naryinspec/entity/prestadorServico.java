@@ -10,9 +10,12 @@ import jakarta.persistence.Table;
 @Entity
 @Table( name = "PRESTADOR" )
 public class PrestadorServico{
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "PRESTADOR_ID")
+    private Long prestador_id;
+
     @Column(name = "CNPJ")
     private String cnpj;
 
@@ -25,15 +28,16 @@ public class PrestadorServico{
     @Column(name = "PRESTADOR_NOME")
     private String prestador_nome;
 
-    @Column(name = "CATEGORIA_NOME")
-    private String categoria_nome;
+    @Column(name = "CATEGORIA_ID")
+    private Long categoria_id;
 
-    public PrestadorServico(String cnpj, String email, String senha, String prestador_nome, String categoria_nome){
+    public PrestadorServico(String cnpj, String email, String senha, String prestador_nome, Long categoria_id){
+
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
         this.prestador_nome = prestador_nome;
-        this.categoria_nome = categoria_nome;
+        this.categoria_id = categoria_id;
     }
 
     public PrestadorServico(){
@@ -71,12 +75,20 @@ public class PrestadorServico{
         this.prestador_nome = prestador_nome;
     }
 
-    public String getCategoria_nome() {
-        return categoria_nome;
+    public Long getCategoria_id() {
+        return categoria_id;
     }
 
-    public void setCategoria_nome(String categoria_nome) {
-        this.categoria_nome = categoria_nome;
+    public void setCategoria_id(Long categoria_id) {
+        this.categoria_id = categoria_id;
+    }
+
+    public Long getPrestador_id() {
+        return prestador_id;
+    }
+
+    public void setPrestador_id(Long prestador_id) {
+        this.prestador_id = prestador_id;
     }
 
 
