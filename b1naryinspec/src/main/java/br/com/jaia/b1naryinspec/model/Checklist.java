@@ -22,6 +22,7 @@ public class Checklist {
     public Checklist(){
     }
 
+<<<<<<< HEAD
     public Long getChecklistId() {
         return checklistId;
     }
@@ -36,5 +37,21 @@ public class Checklist {
 
     public void setChecklistNome(String checklistNome) {
         this.checklistNome = checklistNome;
+=======
+    public Long getChecklist_id() {
+        return checklist_id;
+    }
+
+    public void setChecklist_id(Long checklist_id) {
+        this.checklist_id = checklist_id;
+    }
+
+    public String getChecklist_nome() {
+        return checklist_nome;
+    }
+
+    public void setChecklist_nome(String checklist_nome) {
+        this.checklist_nome = checklist_nome;
+>>>>>>> 1Sprint
     }
 }
