@@ -1,36 +1,40 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Entity
-@Table(name = "CATEGORIA_NOME")
-public class Categoria implements Serializable {
+@Table(name = "CATEGORIA")
+public class Categoria {
 
-    private final Long serialVersionUID = 1L;
+
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(nullable = false, name = "CAT_ID")
+    @Column(nullable = false, name = "categoria_id")
     private Long id;
 
-    @Column(name =  "nome" )
+    @Column(name =  "categoria_nome" )
     private String nome;
 
-
-
+    @ManyToMany
+    @JoinTable(
+            name = "relacao_categoria_checklist",
+            joinColumns = @JoinColumn(name = "categoria_id"),
+            inverseJoinColumns = @JoinColumn(name = "checklist_id"))
+    private List<Checklist> checklistList;
     public Categoria() {
     }
 
     public Categoria(String nome) {
         this.nome = nome;
     }
-
-
-
 
     public Long getId() {
         return id;
@@ -41,8 +45,6 @@ public class Categoria implements Serializable {
     }
 
 
-
-
     public String getNome() {
         return nome;
     }
@@ -51,7 +53,17 @@ public class Categoria implements Serializable {
         this.nome = nome;
     }
 
+    public Categoria(Long id, String nome, List<Checklist> checklistList) {
+        this.id = id;
+        this.nome = nome;
+        this.checklistList = checklistList;
+    }
 
+    public List<Checklist> getChecklistList() {
+        return checklistList;
+    }
 
-
+    public void setChecklistList(List<Checklist> checklistList) {
+        this.checklistList = checklistList;
+    }
 }

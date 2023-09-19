@@ -1,6 +1,10 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "checklist")
@@ -14,9 +18,15 @@ public class Checklist {
     @Column(name = "checklist_nome", nullable = false)
     private String checklistNome;
 
-    public Checklist(Long checklistId, String checklistNome) {
+
+    @ManyToMany(mappedBy = "checklistList")
+
+    private List<Categoria> categoriaList;
+
+    public Checklist(Long checklistId, String checklistNome, List<Categoria> categoriaList) {
         this.checklistId = checklistId;
         this.checklistNome = checklistNome;
+        this.categoriaList = categoriaList;
     }
 
     public Checklist(){
@@ -36,5 +46,13 @@ public class Checklist {
 
     public void setChecklistNome(String checklistNome) {
         this.checklistNome = checklistNome;
+    }
+
+    public List<Categoria> getCategoriaList() {
+        return categoriaList;
+    }
+
+    public void setCategoriaList(List<Categoria> categoriaList) {
+        this.categoriaList = categoriaList;
     }
 }
