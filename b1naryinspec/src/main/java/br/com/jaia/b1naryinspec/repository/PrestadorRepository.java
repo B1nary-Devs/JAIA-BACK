@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.jaia.b1naryinspec.entity.PrestadorServico;
+import br.com.jaia.b1naryinspec.model.PrestadorServico;
 
 public interface PrestadorRepository extends JpaRepository <PrestadorServico, Long> {
     
@@ -12,5 +12,7 @@ public interface PrestadorRepository extends JpaRepository <PrestadorServico, Lo
 
     public Optional<PrestadorServico> findByCnpj(String cnpj); 
 
-    public Optional<PrestadorServico> findByPrestadorNome(String prestador_nome);
+    public Optional<PrestadorServico> findByPrestadorNome(String prestadorNome);
+
+    public PrestadorServico findByPrestadorId(Long prestadorId);
 }

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.jaia.b1naryinspec.dto.PrestadorDto;
-import br.com.jaia.b1naryinspec.entity.PrestadorServico;
+import br.com.jaia.b1naryinspec.model.PrestadorServico;
 import br.com.jaia.b1naryinspec.repository.PrestadorRepository;
 import br.com.jaia.b1naryinspec.service.PrestadorInterface;
 
@@ -38,7 +38,7 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarTodosPrestadores());
     }
 
-    @GetMapping(value = "/{cnpj}")
+    @GetMapping(value = "/cnpj/{cnpj}")
     public ResponseEntity<Object> buscarPorCnpj(@PathVariable("cnpj") String cnpj){
 
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByCnpj(cnpj);
@@ -49,7 +49,7 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadoPorCnpj(cnpj));
     }
 
-    @GetMapping(value = "/{email}")
+    @GetMapping(value = "/email/{email}")
     public ResponseEntity<Object> buscarPorEmail(@PathVariable("email") String email){
 
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
@@ -60,15 +60,15 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorEmail(email));
     }
 
-    @GetMapping(value = "/{prestadorNome}")
-    public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestador_nome){
+    @GetMapping(value = "/nome/{prestadorNome}")
+    public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){
 
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestador_nome);
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
         if(!prestadorOp.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestador_nome));
+        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestadorNome));
     }
 
     @PostMapping
@@ -76,26 +76,26 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.CREATED).body(prestador.novoPrestador(prestadorServ));
     }
 
-    @PutMapping(value = "/{prestador_id}")
-    public ResponseEntity<Object> editarPrestador(@PathVariable("prestador_id") Long prestador_id,PrestadorDto prestadorDto ){
+    @PutMapping(value = "/{prestadorId}")
+    public ResponseEntity<Object> editarPrestador(@PathVariable("prestadorId") Long prestadorId, @RequestBody PrestadorDto prestadorDto ){
         
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestador_id);
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestadorId);
         if(!prestadorOp.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
         }
 
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.updatePrestador(prestador_id, prestadorDto));
+        return ResponseEntity.status(HttpStatus.OK).body(prestador.updatePrestador(prestadorId, prestadorDto));
     }
 
-    @DeleteMapping(value = "/{prestador_id}")
-    public ResponseEntity<String> removerPrestador(@PathVariable("prestador_id") Long prestador_id){
+    @DeleteMapping(value = "/{prestadorId}")
+    public ResponseEntity<String> removerPrestador(@PathVariable("prestadorId") Long prestadorId){
         
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestador_id);
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestadorId);
 
         if(!prestadorOp.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
         }
-        prestador.deletePrestador(prestador_id);
+        prestador.deletePrestador(prestadorId);
         return ResponseEntity.status(HttpStatus.OK).body("Prestador deletado!");
     }
 

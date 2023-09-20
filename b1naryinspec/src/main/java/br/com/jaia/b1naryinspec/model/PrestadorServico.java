@@ -1,4 +1,4 @@
-package br.com.jaia.b1naryinspec.entity;
+package br.com.jaia.b1naryinspec.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,8 +13,8 @@ public class PrestadorServico{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRESTADOR_ID")
-    private Long prestador_id;
+    @Column( name = "PRESTADOR_ID")
+    private Long prestadorId;
 
     @Column(name = "CNPJ")
     private String cnpj;
@@ -26,18 +26,18 @@ public class PrestadorServico{
     private String senha;
 
     @Column(name = "PRESTADOR_NOME")
-    private String prestador_nome;
+    private String prestadorNome;
 
     @Column(name = "CATEGORIA_ID")
-    private Long categoria_id;
+    private Long categoriaId;
 
-    public PrestadorServico(String cnpj, String email, String senha, String prestador_nome, Long categoria_id){
-
+    public PrestadorServico( String cnpj, String email, String senha, String prestadorNome, Long categoriaId){
+        
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
-        this.prestador_nome = prestador_nome;
-        this.categoria_id = categoria_id;
+        this.prestadorNome = prestadorNome;
+        this.categoriaId = categoriaId;
     }
 
     public PrestadorServico(){
@@ -67,28 +67,28 @@ public class PrestadorServico{
         this.senha = senha;
     }
 
-    public String getPrestador_nome() {
-        return prestador_nome;
+    public String getPrestadorNome() {
+        return prestadorNome;
     }
 
-    public void setPrestador_nome(String prestador_nome) {
-        this.prestador_nome = prestador_nome;
+    public void setPrestadorNome(String prestadorNome) {
+        this.prestadorNome = prestadorNome;
     }
 
-    public Long getCategoria_id() {
-        return categoria_id;
+    public Long getCategoriaId() {
+        return categoriaId;
     }
 
-    public void setCategoria_id(Long categoria_id) {
-        this.categoria_id = categoria_id;
+    public void setCategoriaId(Long categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
-    public Long getPrestador_id() {
-        return prestador_id;
+    public Long getPrestadorId() {
+        return prestadorId;
     }
 
-    public void setPrestador_id(Long prestador_id) {
-        this.prestador_id = prestador_id;
+    public void setPrestadorId(Long prestadorId) {
+        this.prestadorId = prestadorId;
     }
 
 

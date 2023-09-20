@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.jaia.b1naryinspec.dto.PrestadorDto;
-import br.com.jaia.b1naryinspec.entity.PrestadorServico;
+import br.com.jaia.b1naryinspec.model.PrestadorServico;
 import br.com.jaia.b1naryinspec.repository.PrestadorRepository;
 
 @Service
@@ -29,8 +29,8 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
-        prestador.setPrestador_nome(prestadorDto.getPrestador_nome());
-        prestador.setPrestador_id(prestadorDto.getPrestador_id());
+        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
+        prestador.setPrestadorId(prestadorDto.getPrestadorId());
         return prestadorRepo.save(prestador);
     }
 
@@ -59,8 +59,8 @@ public class PrestadorService implements PrestadorInterface {
     }
 
     @Override
-    public PrestadorServico buscarPrestadorPorNome(String prestador_nome){
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestador_nome);
+    public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
         if(prestadorOp.isEmpty()){
              throw new IllegalArgumentException("Prestador de serviço não encontrado!");
         }
@@ -68,9 +68,9 @@ public class PrestadorService implements PrestadorInterface {
     }
 
     @Override
-    public PrestadorServico updatePrestador(Long prestador_id, PrestadorDto prestadorDto){
+    public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto){
 
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestador_id);
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestadorId);
         if(prestadorOp.isEmpty()){
              throw new IllegalArgumentException("Prestador de serviço não encontrado!");
         }
@@ -78,17 +78,16 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
-        prestador.setPrestador_nome(prestadorDto.getPrestador_nome());
-        prestador.setPrestador_id(prestadorDto.getPrestador_id());
+        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());        
         
         return prestadorRepo.save(prestador);
     }
 
     @Override
-    public Optional<PrestadorServico> deletePrestador(Long prestador_id){
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestador_id);
+    public Optional<PrestadorServico> deletePrestador(Long prestadorId){
+        Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestadorId);
         if(prestadorOp.isPresent()){
-            prestadorRepo.deleteById(prestador_id);
+            prestadorRepo.deleteById(prestadorId);
         }
         return prestadorOp;
     }

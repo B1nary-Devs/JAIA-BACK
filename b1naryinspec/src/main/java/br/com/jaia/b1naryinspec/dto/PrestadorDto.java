@@ -4,19 +4,19 @@ package br.com.jaia.b1naryinspec.dto;
 
 public class PrestadorDto {
    
-    private Long prestador_id;
+    private Long prestadorId;
     private String cnpj;
     private String email;
     private String senha;
-    private String prestador_nome;
-    private Long categoria_id;
+    private String prestadorNome;
+    private Long categoriaId;
 
-    public Long getPrestador_id() {
-        return prestador_id;
+    public Long getPrestadorId() {
+        return prestadorId;
     }
 
-    public void setPrestador_id(Long prestador_id) {
-        this.prestador_id = prestador_id;
+    public void setPrestadorId(Long prestadorId) {
+        this.prestadorId = prestadorId;
     }
     
     public String getCnpj() {
@@ -43,20 +43,20 @@ public class PrestadorDto {
         this.senha = senha;
     }
 
-    public String getPrestador_nome() {
-        return prestador_nome;
+    public String getPrestadorNome() {
+        return prestadorNome;
     }
 
-    public void setPrestador_nome(String prestador_nome) {
-        this.prestador_nome = prestador_nome;
+    public void setPrestadorNome(String prestadorNome) {
+        this.prestadorNome = prestadorNome;
     }
 
-    public Long getCategoria_id() {
-        return categoria_id;
+    public Long getCategoriaId() {
+        return categoriaId;
     }
 
-    public void setCategoria_id(Long categoria_id) {
-        this.categoria_id = categoria_id;
+    public void setCategoriaId(Long categoriaId) {
+        this.categoriaId = categoriaId;
     }
 
 }
