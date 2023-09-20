@@ -18,6 +18,7 @@ import java.util.Optional;
 
 @Controller
 @RestController
+@CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
 @RequestMapping("/categoria")
 public class CategoriaController {
 
