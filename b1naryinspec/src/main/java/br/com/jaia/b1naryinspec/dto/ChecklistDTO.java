@@ -1,11 +1,10 @@
 package br.com.jaia.b1naryinspec.dto;
 
-import br.com.jaia.b1naryinspec.model.Categoria;
 import br.com.jaia.b1naryinspec.model.Checklist;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 
 public class ChecklistDTO {
 

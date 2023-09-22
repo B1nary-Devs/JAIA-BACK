@@ -3,19 +3,15 @@ package br.com.jaia.b1naryinspec.controller;
 
 import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
 import br.com.jaia.b1naryinspec.model.Categoria;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import br.com.jaia.b1naryinspec.repository.CategoriaRepository;
+
 import br.com.jaia.b1naryinspec.service.CategoriaService;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 
