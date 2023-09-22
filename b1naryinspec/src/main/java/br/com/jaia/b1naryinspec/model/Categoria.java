@@ -1,16 +1,14 @@
 package br.com.jaia.b1naryinspec.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 
-import java.io.Serializable;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
-@Table(name = "CATEGORIA")
+@Table(name = "categoria")
 public class Categoria {
 
 
@@ -23,12 +21,10 @@ public class Categoria {
     @Column(name =  "categoria_nome" )
     private String nome;
 
-    @ManyToMany
-    @JoinTable(
-            name = "relacao_categoria_checklist",
-            joinColumns = @JoinColumn(name = "categoria_id"),
-            inverseJoinColumns = @JoinColumn(name = "checklist_id"))
-    private List<Checklist> checklistList;
+
+    @ManyToMany(mappedBy = "categorias")
+//    @JsonIgnore
+    private Set<Checklist> checklistList = new HashSet<>();
     public Categoria() {
     }
 
@@ -53,17 +49,25 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public Categoria(Long id, String nome, List<Checklist> checklistList) {
+    public Categoria(Long id, String nome, Set<Checklist> checklistList) {
         this.id = id;
         this.nome = nome;
         this.checklistList = checklistList;
     }
 
-    public List<Checklist> getChecklistList() {
+
+
+
+    public Set<Checklist> getChecklistList() {
         return checklistList;
     }
 
-    public void setChecklistList(List<Checklist> checklistList) {
+    public void setChecklistList(Set<Checklist> checklistList) {
         this.checklistList = checklistList;
     }
+
+
+
+
+
 }

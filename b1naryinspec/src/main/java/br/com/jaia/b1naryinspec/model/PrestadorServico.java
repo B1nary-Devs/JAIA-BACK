@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table( name = "PRESTADOR" )
+@Table( name = "prestador" )
 public class PrestadorServico{
 
     @Id
@@ -30,6 +30,8 @@ public class PrestadorServico{
 
     @Column(name = "CATEGORIA_ID")
     private Long categoriaId;
+
+
 
     public PrestadorServico( String cnpj, String email, String senha, String prestadorNome, Long categoriaId){
         

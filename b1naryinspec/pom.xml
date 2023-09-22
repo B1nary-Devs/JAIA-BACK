@@ -62,7 +62,8 @@
 			<version>21.5.0.0</version>
 			<scope>runtime</scope>
 		</dependency>
-	</dependencies>
+
+    </dependencies>
 
 	<build>
 		<plugins>

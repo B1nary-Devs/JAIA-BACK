@@ -1,10 +1,9 @@
 package br.com.jaia.b1naryinspec.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "checklist")
@@ -19,18 +18,24 @@ public class Checklist {
     private String checklistNome;
 
 
-    @ManyToMany(mappedBy = "checklistList")
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+    @JoinTable(name = "relacao_categoria_checklist",
+            joinColumns = @JoinColumn(name = "checklist_id"),
+            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+    Set<Categoria> categorias = new HashSet<>();
 
-    private List<Categoria> categoriaList;
+    
 
-    public Checklist(Long checklistId, String checklistNome, List<Categoria> categoriaList) {
+    public Checklist(Long checklistId, String checklistNome, Set<Categoria> categoriaList) {
         this.checklistId = checklistId;
         this.checklistNome = checklistNome;
-        this.categoriaList = categoriaList;
+        this.categorias = categoriaList;
     }
 
-    public Checklist(){
+
+    public Checklist() {
     }
+
 
     public Long getChecklistId() {
         return checklistId;
@@ -48,11 +53,15 @@ public class Checklist {
         this.checklistNome = checklistNome;
     }
 
-    public List<Categoria> getCategoriaList() {
-        return categoriaList;
+    public Set<Categoria> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoriaList(List<Categoria> categoriaList) {
-        this.categoriaList = categoriaList;
+    public void setCategorias(Set<Categoria> categorias) {
+        this.categorias = categorias;
+
+
     }
+
+
 }

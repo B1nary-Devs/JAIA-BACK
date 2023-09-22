@@ -1,9 +1,11 @@
 package br.com.jaia.b1naryinspec.service;
 
 
+import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
 import br.com.jaia.b1naryinspec.model.Categoria;
-import org.springframework.beans.BeanUtils;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -23,9 +25,10 @@ public class CategoriaService {
 
 
     @Transactional
-    public Categoria buscarid(Long id){
+    public CategoriaDTO FindById(Long id) {
         Optional<Categoria> obj = categoriaRepository.findById(id);
-        return obj.orElseThrow(() -> new EmptyResultDataAccessException(1));
+        Categoria entity = obj.orElseThrow();
+        return new CategoriaDTO(entity);
 
 
     }
@@ -33,7 +36,7 @@ public class CategoriaService {
 
 
     @Transactional
-    public List<Categoria> buscartodos(){
+    public List<Categoria> findAll(){
         return categoriaRepository.findAll();
 
 
@@ -41,39 +44,37 @@ public class CategoriaService {
 
 
     @Transactional
-    public Categoria criar(Categoria obj){
-        obj.setId(null);
-        return categoriaRepository.save(obj);
+    public CategoriaDTO insert(CategoriaDTO dto) {
+        Categoria entity = new Categoria();
+        entity.setNome(dto.getNome());
+        entity = categoriaRepository.save(entity);
+        return new CategoriaDTO(entity);
 
     }
 
 
     @Transactional
-    public Categoria atualizar(Long id , Categoria obj) {
-        Categoria CategoriaSalva = buscarid(id);
-
-        BeanUtils.copyProperties(obj, CategoriaSalva, "id");
-        return categoriaRepository.save(CategoriaSalva);
+    public CategoriaDTO update(Long id , CategoriaDTO dto) {
+        try {
+            Categoria entity = categoriaRepository.getReferenceById(id);
+            entity.setNome(dto.getNome());
+            entity = categoriaRepository.save(entity);
+            return new CategoriaDTO(entity);
+        } catch (EntityNotFoundException e) {
+            throw new RuntimeException("id nao localizada");
+        }
     }
 
-
-
-
-
-    public void deletar(Long id) {
-        buscarid(id);
+    public void delete(Long id) {
+        FindById(id);
         try{
             categoriaRepository.deleteById(id);
         }catch (DataIntegrityViolationException e){
-            throw new RuntimeException("Id nao localizado");
+            throw new DataIntegrityViolationException("Categoria nao pode ser deletada, pois possui livros associados a esta");
 
         }
 
-
     }
-
-
-
 
 
 
