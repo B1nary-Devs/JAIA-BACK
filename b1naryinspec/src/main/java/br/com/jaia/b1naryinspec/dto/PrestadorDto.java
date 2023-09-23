@@ -18,7 +18,7 @@ public class PrestadorDto {
     public void setPrestadorId(Long prestadorId) {
         this.prestadorId = prestadorId;
     }
-    
+
     public String getCnpj() {
         return cnpj;
     }
@@ -58,5 +58,9 @@ public class PrestadorDto {
     public void setCategoriaId(Long categoriaId) {
         this.categoriaId = categoriaId;
     }
+
+
+
+
 
 }

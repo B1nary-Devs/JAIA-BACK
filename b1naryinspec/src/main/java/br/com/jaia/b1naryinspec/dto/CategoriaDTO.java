@@ -2,6 +2,8 @@ package br.com.jaia.b1naryinspec.dto;
 
 import br.com.jaia.b1naryinspec.model.Categoria;
 
+
+
 public class CategoriaDTO {
 
     private Long id;
@@ -39,6 +41,9 @@ public class CategoriaDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
+
 
 
 

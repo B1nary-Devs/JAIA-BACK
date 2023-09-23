@@ -1,5 +1,6 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -14,7 +15,7 @@ public class Categoria {
 
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false, name = "categoria_id")
     private Long id;
 
@@ -25,6 +26,17 @@ public class Categoria {
     @ManyToMany(mappedBy = "categorias")
 //    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
+
+
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<PrestadorServico> prestadorServicos;
+
+
+
+
+
+
     public Categoria() {
     }
 
@@ -49,6 +61,8 @@ public class Categoria {
         this.nome = nome;
     }
 
+
+
     public Categoria(Long id, String nome, Set<Checklist> checklistList) {
         this.id = id;
         this.nome = nome;
@@ -68,6 +82,44 @@ public class Categoria {
 
 
 
+
+    // Parte prestador - Categoria - checklist
+
+
+
+
+
+
+
+    public Categoria(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
+        this.id = id;
+        this.nome = nome;
+        this.checklistList = checklistList;
+        this.prestadorServicos = prestadorServicos;
+    }
+
+
+
+
+
+
+    public Categoria(Set<PrestadorServico> prestadorServicos) {
+        this.prestadorServicos = prestadorServicos;
+    }
+
+
+    public Set<PrestadorServico> getPrestadorServicos() {
+        return prestadorServicos;
+    }
+
+    public void setPrestadorServicos(Set<PrestadorServico> prestadorServicos) {
+        this.prestadorServicos = prestadorServicos;
+    }
+
+
+
+
+    
 
 
 }

@@ -1,11 +1,7 @@
 package br.com.jaia.b1naryinspec.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
 @Table( name = "prestador" )
@@ -28,21 +24,32 @@ public class PrestadorServico{
     @Column(name = "PRESTADOR_NOME")
     private String prestadorNome;
 
-    @Column(name = "CATEGORIA_ID")
-    private Long categoriaId;
+
+    @ManyToOne
+    @JoinColumn(name = "CATEGORIA_ID")
+    private Categoria categoria;
 
 
-
-    public PrestadorServico( String cnpj, String email, String senha, String prestadorNome, Long categoriaId){
-        
+    public PrestadorServico(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Categoria categoria) {
+        this.prestadorId = prestadorId;
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
         this.prestadorNome = prestadorNome;
-        this.categoriaId = categoriaId;
+        this.categoria = categoria;
     }
 
-    public PrestadorServico(){
+
+    public PrestadorServico() {
+    }
+
+
+    public Long getPrestadorId() {
+        return prestadorId;
+    }
+
+    public void setPrestadorId(Long prestadorId) {
+        this.prestadorId = prestadorId;
     }
 
     public String getCnpj() {
@@ -77,21 +84,18 @@ public class PrestadorServico{
         this.prestadorNome = prestadorNome;
     }
 
-    public Long getCategoriaId() {
-        return categoriaId;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCategoriaId(Long categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Long getPrestadorId() {
-        return prestadorId;
-    }
 
-    public void setPrestadorId(Long prestadorId) {
-        this.prestadorId = prestadorId;
-    }
+
+
+
 
 
 }

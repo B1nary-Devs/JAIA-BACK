@@ -41,13 +41,20 @@ public class CategoriaService {
     }
 
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class) // Defina exceções específicas, se aplicável
     public CategoriaDTO insert(CategoriaDTO dto) {
-        Categoria entity = new Categoria();
-        entity.setNome(dto.getNome());
-        entity = categoriaRepository.save(entity);
-        return new CategoriaDTO(entity);
-
+        try {
+            Categoria entity = new Categoria();
+            entity.setNome(dto.getNome());
+            entity = categoriaRepository.save(entity);
+            return new CategoriaDTO(entity);
+        } catch (DataIntegrityViolationException e) {
+            // Trate exceções de violação de integridade, se necessário
+            throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
+        } catch (Exception e) {
+            // Trate outras exceções aqui
+            throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
+        }
     }
 
 
