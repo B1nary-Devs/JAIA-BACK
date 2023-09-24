@@ -24,7 +24,7 @@ public class Categoria {
 
 
     @ManyToMany(mappedBy = "categorias")
-//    @JsonIgnore
+    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
 
 
