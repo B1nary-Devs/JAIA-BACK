@@ -26,17 +26,17 @@ public class PrestadorServico{
 
 
     @ManyToOne
-    @JoinColumn(name = "CATEGORIA_ID")
-    private Categoria categoria;
+    @JoinColumn(name = "segmento_id")
+    private Segmento segmento;
 
 
-    public PrestadorServico(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Categoria categoria) {
+    public PrestadorServico(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Segmento segmento) {
         this.prestadorId = prestadorId;
         this.cnpj = cnpj;
         this.email = email;
         this.senha = senha;
         this.prestadorNome = prestadorNome;
-        this.categoria = categoria;
+        this.segmento = segmento;
     }
 
 
@@ -84,12 +84,12 @@ public class PrestadorServico{
         this.prestadorNome = prestadorNome;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public Segmento getSegmento() {
+        return segmento;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setSegmento(Segmento segmento) {
+        this.segmento = segmento;
     }
 
 

@@ -19,17 +19,17 @@ public class Checklist {
 
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
-    @JoinTable(name = "relacao_categoria_checklist",
+    @JoinTable(name = "relacao_segmento_checklist",
             joinColumns = @JoinColumn(name = "checklist_id"),
-            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-    Set<Categoria> categorias = new HashSet<>();
+            inverseJoinColumns = @JoinColumn(name = "segmento_id"))
+    Set<Segmento> segmentos = new HashSet<>();
 
     
 
-    public Checklist(Long checklistId, String checklistNome, Set<Categoria> categoriaList) {
+    public Checklist(Long checklistId, String checklistNome, Set<Segmento> segmentoList) {
         this.checklistId = checklistId;
         this.checklistNome = checklistNome;
-        this.categorias = categoriaList;
+        this.segmentos = segmentoList;
     }
 
 
@@ -53,12 +53,12 @@ public class Checklist {
         this.checklistNome = checklistNome;
     }
 
-    public Set<Categoria> getCategorias() {
-        return categorias;
+    public Set<Segmento> getSegmentos() {
+        return segmentos;
     }
 
-    public void setCategorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
+    public void setSegmentos(Set<Segmento> segmentos) {
+        this.segmentos = segmentos;
 
 
     }

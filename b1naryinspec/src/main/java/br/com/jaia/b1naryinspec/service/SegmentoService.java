@@ -1,32 +1,32 @@
 package br.com.jaia.b1naryinspec.service;
 
 
-import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
-import br.com.jaia.b1naryinspec.model.Categoria;
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
+import br.com.jaia.b1naryinspec.model.Segmento;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import br.com.jaia.b1naryinspec.repository.CategoriaRepository;
+import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CategoriaService {
+public class SegmentoService {
 
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private SegmentoRepository segmentoRepository;
 
 
 
     @Transactional
-    public CategoriaDTO FindById(Long id) {
-        Optional<Categoria> obj = categoriaRepository.findById(id);
-        Categoria entity = obj.orElseThrow();
-        return new CategoriaDTO(entity);
+    public SegmentoDTO FindById(Long id) {
+        Optional<Segmento> obj = segmentoRepository.findById(id);
+        Segmento entity = obj.orElseThrow();
+        return new SegmentoDTO(entity);
 
 
     }
@@ -34,20 +34,20 @@ public class CategoriaService {
 
 
     @Transactional
-    public List<Categoria> findAll(){
-        return categoriaRepository.findAll();
+    public List<Segmento> findAll(){
+        return segmentoRepository.findAll();
 
 
     }
 
 
     @Transactional(rollbackFor = Exception.class) // Defina exceções específicas, se aplicável
-    public CategoriaDTO insert(CategoriaDTO dto) {
+    public SegmentoDTO insert(SegmentoDTO dto) {
         try {
-            Categoria entity = new Categoria();
+            Segmento entity = new Segmento();
             entity.setNome(dto.getNome());
-            entity = categoriaRepository.save(entity);
-            return new CategoriaDTO(entity);
+            entity = segmentoRepository.save(entity);
+            return new SegmentoDTO(entity);
         } catch (DataIntegrityViolationException e) {
             // Trate exceções de violação de integridade, se necessário
             throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
@@ -59,12 +59,12 @@ public class CategoriaService {
 
 
     @Transactional
-    public CategoriaDTO update(Long id , CategoriaDTO dto) {
+    public SegmentoDTO update(Long id , SegmentoDTO dto) {
         try {
-            Categoria entity = categoriaRepository.getReferenceById(id);
+            Segmento entity = segmentoRepository.getReferenceById(id);
             entity.setNome(dto.getNome());
-            entity = categoriaRepository.save(entity);
-            return new CategoriaDTO(entity);
+            entity = segmentoRepository.save(entity);
+            return new SegmentoDTO(entity);
         } catch (EntityNotFoundException e) {
             throw new RuntimeException("id nao localizada");
         }
@@ -73,7 +73,7 @@ public class CategoriaService {
     public void delete(Long id) {
         FindById(id);
         try{
-            categoriaRepository.deleteById(id);
+            segmentoRepository.deleteById(id);
         }catch (DataIntegrityViolationException e){
             throw new DataIntegrityViolationException("Categoria nao pode ser deletada, pois possui livros associados a esta");
 

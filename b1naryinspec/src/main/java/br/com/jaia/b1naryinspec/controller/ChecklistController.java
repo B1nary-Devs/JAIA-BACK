@@ -2,18 +2,15 @@ package br.com.jaia.b1naryinspec.controller;
 
 
 import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
-import br.com.jaia.b1naryinspec.model.Categoria;
 import br.com.jaia.b1naryinspec.service.ChecklistService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import br.com.jaia.b1naryinspec.model.Checklist;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/checklist")

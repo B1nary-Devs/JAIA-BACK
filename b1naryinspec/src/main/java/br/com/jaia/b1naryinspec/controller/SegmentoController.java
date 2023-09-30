@@ -1,14 +1,14 @@
 package br.com.jaia.b1naryinspec.controller;
 
 
-import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
-import br.com.jaia.b1naryinspec.model.Categoria;
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
+import br.com.jaia.b1naryinspec.model.Segmento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import br.com.jaia.b1naryinspec.service.CategoriaService;
+import br.com.jaia.b1naryinspec.service.SegmentoService;
 
 import java.net.URI;
 import java.util.List;
@@ -17,20 +17,20 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
-@RequestMapping("/categoria")
-public class CategoriaController {
+@RequestMapping("/segmento")
+public class SegmentoController {
 
 
 
     @Autowired
-    private CategoriaService categoriaService;
+    private SegmentoService segmentoService;
 
 
 
     @GetMapping
-    public ResponseEntity<List<CategoriaDTO>> findAll(){
-        List<Categoria> list = categoriaService.findAll();
-        List<CategoriaDTO> listDto = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
+    public ResponseEntity<List<SegmentoDTO>> findAll(){
+        List<Segmento> list = segmentoService.findAll();
+        List<SegmentoDTO> listDto = list.stream().map(obj -> new SegmentoDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
 
 
@@ -41,8 +41,8 @@ public class CategoriaController {
 
 
     @PostMapping
-    public ResponseEntity<CategoriaDTO> insert(@RequestBody CategoriaDTO dto){
-        dto = categoriaService.insert(dto);
+    public ResponseEntity<SegmentoDTO> insert(@RequestBody SegmentoDTO dto){
+        dto = segmentoService.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(dto.getId()).toUri();
 
@@ -59,8 +59,8 @@ public class CategoriaController {
 
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<CategoriaDTO> findById(@PathVariable Long id){
-        CategoriaDTO dto  = categoriaService.FindById(id);
+    public ResponseEntity<SegmentoDTO> findById(@PathVariable Long id){
+        SegmentoDTO dto  = segmentoService.FindById(id);
         return ResponseEntity.ok().body(dto);
 
 
@@ -69,7 +69,7 @@ public class CategoriaController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
-        categoriaService.delete(id);
+        segmentoService.delete(id);
         return ResponseEntity.noContent().build();
     }
 
