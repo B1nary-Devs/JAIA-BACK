@@ -3,7 +3,6 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
 import br.com.jaia.b1naryinspec.model.Categoria;
 import br.com.jaia.b1naryinspec.repository.CategoriaRepository;
 import jakarta.transaction.Transactional;
@@ -77,6 +76,7 @@ public class PrestadorService implements PrestadorInterface {
         }
         return prestadorOp.get();
     }
+
 
     @Transactional
     public PrestadorServico buscarPrestadorPorNome(String prestadorNome){

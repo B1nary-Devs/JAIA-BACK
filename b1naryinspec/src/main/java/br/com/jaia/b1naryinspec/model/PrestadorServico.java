@@ -15,7 +15,7 @@ public class PrestadorServico{
     @Column(name = "CNPJ")
     private String cnpj;
 
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
     @Column(name = "SENHA")

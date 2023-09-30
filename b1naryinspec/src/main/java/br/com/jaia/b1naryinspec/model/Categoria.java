@@ -19,12 +19,13 @@ public class Categoria {
     @Column(nullable = false, name = "categoria_id")
     private Long id;
 
-    @Column(name =  "categoria_nome" )
+    @Column(name =  "categoria_nome", unique = true )
+
     private String nome;
 
 
     @ManyToMany(mappedBy = "categorias")
-    @JsonIgnore
+//    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
 
 
@@ -68,6 +69,7 @@ public class Categoria {
         this.nome = nome;
         this.checklistList = checklistList;
     }
+
 
 
 
