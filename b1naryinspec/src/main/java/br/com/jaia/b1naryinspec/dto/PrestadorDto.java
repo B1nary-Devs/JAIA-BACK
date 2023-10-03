@@ -9,7 +9,7 @@ public class PrestadorDto {
     private String email;
     private String senha;
     private String prestadorNome;
-    private Long categoriaId;
+    private Long segmentoId;
 
     public Long getPrestadorId() {
         return prestadorId;
@@ -51,12 +51,12 @@ public class PrestadorDto {
         this.prestadorNome = prestadorNome;
     }
 
-    public Long getCategoriaId() {
-        return categoriaId;
+    public Long getSegmentoId() {
+        return segmentoId;
     }
 
-    public void setCategoriaId(Long categoriaId) {
-        this.categoriaId = categoriaId;
+    public void setSegmentoId(Long segmentoId) {
+        this.prestadorId = segmentoId;
     }
 
 

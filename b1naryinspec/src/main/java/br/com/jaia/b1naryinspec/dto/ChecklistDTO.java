@@ -16,7 +16,7 @@ public class ChecklistDTO {
 
 
 
-    private List<CategoriaDTO> categorias = new ArrayList<>();
+    private List<SegmentoDTO> segmentos = new ArrayList<>();
 
 
 
@@ -30,7 +30,7 @@ public class ChecklistDTO {
     public ChecklistDTO(Checklist entity) {
         this.checklistId = entity.getChecklistId();
         this.checklistNome = entity.getChecklistNome();
-        entity.getCategorias().forEach(cat -> this.categorias.add(new CategoriaDTO(cat)));
+        entity.getSegmentos().forEach(cat -> this.segmentos.add(new SegmentoDTO(cat)));
     }
 
 
@@ -52,12 +52,12 @@ public class ChecklistDTO {
         this.checklistNome = checklistNome;
     }
 
-    public List<CategoriaDTO> getCategorias() {
-        return categorias;
+    public List<SegmentoDTO> getSegmentos() {
+        return segmentos;
     }
 
-    public void setCategorias(List<CategoriaDTO> categorias) {
-        this.categorias = categorias;
+    public void setSegmentos(List<SegmentoDTO> categorias) {
+        this.segmentos = categorias;
     }
 
 

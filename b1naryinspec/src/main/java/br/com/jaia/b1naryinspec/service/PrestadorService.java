@@ -3,9 +3,8 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
-import br.com.jaia.b1naryinspec.model.Categoria;
-import br.com.jaia.b1naryinspec.repository.CategoriaRepository;
+import br.com.jaia.b1naryinspec.model.Segmento;
+import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,7 @@ public class PrestadorService implements PrestadorInterface {
     private PrestadorRepository prestadorRepo;
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private SegmentoRepository segmentoRepository;
 
     @Transactional
     public PrestadorServico novoPrestador(PrestadorDto prestadorDto) {
@@ -30,7 +29,7 @@ public class PrestadorService implements PrestadorInterface {
             prestadorDto.getEmail().isBlank() ||
             prestadorDto.getSenha() == null ||
             prestadorDto.getSenha().isBlank()||
-            prestadorDto.getCategoriaId() == null ){
+            prestadorDto.getSegmentoId() == null ){
                 throw new IllegalArgumentException("Dados Invalidos");
         }
         PrestadorServico prestador = new PrestadorServico();
@@ -40,12 +39,12 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
         prestador.setPrestadorId(prestadorDto.getPrestadorId());
 
-        // Busque a categoria com base no categoriaId
-        Categoria categoria = categoriaRepository.findById(prestadorDto.getCategoriaId())
-                .orElseThrow(() -> new IllegalArgumentException("Categoria não encontrada"));
+        // Busque a categoria com base no segmentoId
+        Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
+                .orElseThrow(() -> new IllegalArgumentException("segmento não encontrado"));
 
         // define a categoria no prestador
-        prestador.setCategoria(categoria);
+        prestador.setSegmento(segmento);
 
         return prestadorRepo.save(prestador);
 
@@ -77,6 +76,7 @@ public class PrestadorService implements PrestadorInterface {
         }
         return prestadorOp.get();
     }
+
 
     @Transactional
     public PrestadorServico buscarPrestadorPorNome(String prestadorNome){

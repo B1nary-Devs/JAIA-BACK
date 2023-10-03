@@ -9,26 +9,27 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "categoria")
-public class Categoria {
+@Table(name = "segmento")
+public class Segmento {
 
 
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, name = "categoria_id")
+    @Column(nullable = false, name = "segmento_id")
     private Long id;
 
-    @Column(name =  "categoria_nome" )
+    @Column(name =  "segmento_nome", unique = true )
+
     private String nome;
 
 
-    @ManyToMany(mappedBy = "categorias")
-    @JsonIgnore
+    @ManyToMany(mappedBy = "segmentos")
+//    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
 
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<PrestadorServico> prestadorServicos;
 
@@ -37,10 +38,10 @@ public class Categoria {
 
 
 
-    public Categoria() {
+    public Segmento() {
     }
 
-    public Categoria(String nome) {
+    public Segmento(String nome) {
         this.nome = nome;
     }
 
@@ -63,11 +64,12 @@ public class Categoria {
 
 
 
-    public Categoria(Long id, String nome, Set<Checklist> checklistList) {
+    public Segmento(Long id, String nome, Set<Checklist> checklistList) {
         this.id = id;
         this.nome = nome;
         this.checklistList = checklistList;
     }
+
 
 
 
@@ -91,7 +93,7 @@ public class Categoria {
 
 
 
-    public Categoria(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
+    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
         this.id = id;
         this.nome = nome;
         this.checklistList = checklistList;
@@ -103,7 +105,7 @@ public class Categoria {
 
 
 
-    public Categoria(Set<PrestadorServico> prestadorServicos) {
+    public Segmento(Set<PrestadorServico> prestadorServicos) {
         this.prestadorServicos = prestadorServicos;
     }
 

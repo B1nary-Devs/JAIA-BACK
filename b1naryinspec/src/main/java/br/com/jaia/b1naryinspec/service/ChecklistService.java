@@ -1,23 +1,19 @@
 package br.com.jaia.b1naryinspec.service;
 
-import br.com.jaia.b1naryinspec.dto.CategoriaDTO;
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
 import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
-import br.com.jaia.b1naryinspec.model.Categoria;
+import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.model.Checklist;
-import br.com.jaia.b1naryinspec.repository.CategoriaRepository;
+import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import br.com.jaia.b1naryinspec.repository.ChecklistRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,7 +24,7 @@ public class ChecklistService {
 
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private SegmentoRepository segmentoRepository;
 
 
     public ChecklistService(ChecklistRepository checklistRepository) {
@@ -70,8 +66,8 @@ public class ChecklistService {
             checklistDTO.setChecklistNome(checklist.getChecklistNome());
 
             // Copie a lista de categorias convertendo de Categoria para CategoriaDTO
-            checklistDTO.setCategorias(checklist.getCategorias().stream()
-                    .map(categoria -> new CategoriaDTO(categoria))
+            checklistDTO.setSegmentos(checklist.getSegmentos().stream()
+                    .map(segmento -> new SegmentoDTO(segmento))
                     .collect(Collectors.toList()));
 
             checklistDTOs.add(checklistDTO);
@@ -93,7 +89,7 @@ public class ChecklistService {
             Checklist checklist = checklistRepository.findById(id)
                     .orElseThrow(() -> new EntityNotFoundException("Checklist com ID " + id + " não encontrado"));
 
-        checklist.getCategorias().clear();
+        checklist.getSegmentos().clear();
         checklistRepository.delete(checklist);
     }
 
@@ -115,11 +111,11 @@ public class ChecklistService {
         entity.setChecklistNome(dto.getChecklistNome());
 
 
-        entity.getCategorias().clear();
-        for (CategoriaDTO catDto : dto.getCategorias()) {
+        entity.getSegmentos().clear();
+        for (SegmentoDTO catDto : dto.getSegmentos()) {
             try {
-                Categoria category = categoriaRepository.getReferenceById(catDto.getId());
-                entity.getCategorias().add(category);
+                Segmento category = segmentoRepository.getReferenceById(catDto.getId());
+                entity.getSegmentos().add(category);
             }catch (EntityNotFoundException e) {
                 // Lide com a exceção de entidade não encontrada de forma apropriada,
             }

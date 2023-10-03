@@ -1,25 +1,25 @@
 package br.com.jaia.b1naryinspec.dto;
 
-import br.com.jaia.b1naryinspec.model.Categoria;
+import br.com.jaia.b1naryinspec.model.Segmento;
 
 
 
-public class CategoriaDTO {
+public class SegmentoDTO {
 
     private Long id;
     private String nome;
 
-    public CategoriaDTO() {
+    public SegmentoDTO() {
     }
 
 
-    public CategoriaDTO(Long id, String nome) {
+    public SegmentoDTO(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
 
 
-    public CategoriaDTO(Categoria entity){
+    public SegmentoDTO(Segmento entity){
         this.id = entity.getId();
         this.nome = entity.getNome();
 
