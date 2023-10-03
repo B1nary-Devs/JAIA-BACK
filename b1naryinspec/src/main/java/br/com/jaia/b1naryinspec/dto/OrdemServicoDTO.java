@@ -1,38 +1,48 @@
 package br.com.jaia.b1naryinspec.dto;
 
+import br.com.jaia.b1naryinspec.model.OrdemServico;
+
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class OrdemServicoDTO {
 
     private Long servicoId;
 
 
-    private LocalDateTime dataAbertura;
+    private LocalDateTime dataAbertura = LocalDateTime.now();
 
     private LocalDateTime dataFechamento;
 
 
     private String status;
 
+    private String descricao;
 
 
-
-    private List<ClienteDTO> clientes = new ArrayList<>();
-
-
-    //TO DO FAZER A LIS DE CLIENTESDTO PRA ORDER DE SERVICODTO
-    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, List<ClienteDTO> clientes) {
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
         this.status = status;
-        this.clientes = clientes; // AQUI
+        this.descricao = descricao;
     }
 
 
     public OrdemServicoDTO() {
+    }
+
+
+
+    public OrdemServicoDTO(OrdemServico entity){
+        this.servicoId = entity.getServicoId();
+        this.dataAbertura = entity.getDataAbertura();
+        this.dataFechamento = entity.getDataFechamento();
+        this.status = entity.getStatus();
+        this.descricao = entity.getDescricao();
+
+
     }
 
 
@@ -68,16 +78,11 @@ public class OrdemServicoDTO {
         this.status = status;
     }
 
-    public List<ClienteDTO> getClientes() {
-        return clientes;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setClientes(List<ClienteDTO> clientes) {
-        this.clientes = clientes;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-
-
-
-
-
 }
