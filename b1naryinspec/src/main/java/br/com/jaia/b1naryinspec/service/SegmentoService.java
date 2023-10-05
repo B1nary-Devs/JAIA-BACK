@@ -37,7 +37,6 @@ public class SegmentoService {
     public List<Segmento> findAll(){
         return segmentoRepository.findAll();
 
-
     }
 
 

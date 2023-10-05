@@ -25,7 +25,7 @@ public class Segmento {
 
 
     @ManyToMany(mappedBy = "segmentos")
-//    @JsonIgnore
+    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
 
 

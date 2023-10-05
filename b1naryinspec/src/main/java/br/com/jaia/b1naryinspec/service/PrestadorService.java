@@ -24,7 +24,7 @@ public class PrestadorService implements PrestadorInterface {
 
     @Transactional
     public PrestadorServico novoPrestador(PrestadorDto prestadorDto) {
-        if(prestadorDto == null || 
+        if(prestadorDto == null ||
             prestadorDto.getEmail() == null ||
             prestadorDto.getEmail().isBlank() ||
             prestadorDto.getSenha() == null ||
@@ -37,7 +37,6 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
-        prestador.setPrestadorId(prestadorDto.getPrestadorId());
 
         // Busque a categoria com base no segmentoId
         Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
