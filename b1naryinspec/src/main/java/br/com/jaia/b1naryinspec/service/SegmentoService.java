@@ -2,6 +2,8 @@ package br.com.jaia.b1naryinspec.service;
 
 
 import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
+import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
+import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.Segmento;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ public class SegmentoService {
     @Transactional
     public SegmentoDTO FindById(Long id) {
         Optional<Segmento> obj = segmentoRepository.findById(id);
-        Segmento entity = obj.orElseThrow();
+        Segmento entity = obj.orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado com o id: " + id));
         return new SegmentoDTO(entity);
 
 
@@ -48,10 +50,8 @@ public class SegmentoService {
             entity = segmentoRepository.save(entity);
             return new SegmentoDTO(entity);
         } catch (DataIntegrityViolationException e) {
-            // Trate exceções de violação de integridade, se necessário
-            throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
+            throw new DataIntegrityViolationExceptionCustom("Erro ao inserir a categoria: " + e.getMessage());
         } catch (Exception e) {
-            // Trate outras exceções aqui
             throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
         }
     }
@@ -65,7 +65,7 @@ public class SegmentoService {
             entity = segmentoRepository.save(entity);
             return new SegmentoDTO(entity);
         } catch (EntityNotFoundException e) {
-            throw new RuntimeException("id nao localizada");
+            throw new ObjectNotFoundException("id nao localizado");
         }
     }
 
@@ -74,7 +74,7 @@ public class SegmentoService {
         try{
             segmentoRepository.deleteById(id);
         }catch (DataIntegrityViolationException e){
-            throw new DataIntegrityViolationException("Categoria nao pode ser deletada, pois possui livros associados a esta");
+            throw new DataIntegrityViolationExceptionCustom("Segmento nao pode ser deletado, pois possui Prestadores associados a esta");
 
         }
 

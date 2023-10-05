@@ -1,11 +1,9 @@
 package br.com.jaia.b1naryinspec.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table( name = "CLIENTE" )
@@ -22,6 +20,18 @@ public class Cliente {
     @Column( name = "NOME")
     private String clienteNome;
 
+
+
+
+    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<OrdemServico> ordemServicos;
+
+
+
+
+
+
     public Cliente(Long clienteId, String clienteCnpj, String clienteNome){
         this.clienteId = clienteId;
         this.clienteCnpj = clienteCnpj;
@@ -31,6 +41,11 @@ public class Cliente {
     public Cliente(){
 
     }
+
+
+
+
+
 
     public Long getClienteId() {
         return clienteId;

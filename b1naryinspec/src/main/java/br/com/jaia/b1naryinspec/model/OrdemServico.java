@@ -1,8 +1,10 @@
 package br.com.jaia.b1naryinspec.model;
 
+
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+
 
 
 @Entity
@@ -28,9 +30,9 @@ public class OrdemServico {
     private String descricao;
 
 
-//    @Column(name =  "cliente_id", unique = true )
-//    @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-//    private Set<Cliente> cliente;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
 
     public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao) {
