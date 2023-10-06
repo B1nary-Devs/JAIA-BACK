@@ -24,7 +24,6 @@ import br.com.jaia.b1naryinspec.service.PrestadorInterface;
 
 @RestController
 @RequestMapping(value = "/prestador")
-@CrossOrigin("*")
 public class PrestadorController{
 
     @Autowired

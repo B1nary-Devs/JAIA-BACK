@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
 @RequestMapping("/ordemservico")
 public class OrdemServicoController {
 

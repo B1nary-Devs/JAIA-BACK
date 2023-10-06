@@ -24,7 +24,6 @@ import br.com.jaia.b1naryinspec.service.ClienteService;
 
 @RestController
 @RequestMapping(value = "/cliente")
-@CrossOrigin("*")
 public class ClienteController {
     
     @Autowired

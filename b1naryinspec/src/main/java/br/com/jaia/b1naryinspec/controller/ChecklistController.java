@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/checklist")
-@CrossOrigin(origins = "http://localhost:5173", maxAge = 3600)
 public class ChecklistController {
 
     private final ChecklistService checklistService;
