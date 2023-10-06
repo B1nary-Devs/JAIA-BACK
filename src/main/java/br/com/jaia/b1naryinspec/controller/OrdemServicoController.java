@@ -43,13 +43,13 @@ public class OrdemServicoController {
 
 
     @GetMapping
-    public ResponseEntity<List<OrdemServicoDTO>> findAll(){
-        List<OrdemServico> list = ordemServicoService.listartodos();
-        List<OrdemServicoDTO> listDto = list.stream().map(obj -> new OrdemServicoDTO(obj)).collect(Collectors.toList());
-        return ResponseEntity.ok().body(listDto);
-
-
+    public ResponseEntity<List<OrdemServico>> listarTodasOrdens() {
+        List<OrdemServico> ordens = ordemServicoService.listartodos();
+        return ResponseEntity.ok(ordens);
     }
+
+
+
 
 
 

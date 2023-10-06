@@ -1,6 +1,7 @@
 package br.com.jaia.b1naryinspec.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -32,15 +33,17 @@ public class OrdemServico {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    @JsonIgnore
     private Cliente cliente;
 
 
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao) {
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
         this.status = status;
         this.descricao = descricao;
+        this.cliente = cliente;
     }
 
     public OrdemServico() {
@@ -78,7 +81,6 @@ public class OrdemServico {
         this.status = status;
     }
 
-
     public String getDescricao() {
         return descricao;
     }
@@ -86,4 +88,14 @@ public class OrdemServico {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+
 }

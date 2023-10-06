@@ -23,29 +23,20 @@ public class Cliente {
 
 
 
-    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<OrdemServico> ordemServicos;
 
 
-
-
-
-
-    public Cliente(Long clienteId, String clienteCnpj, String clienteNome){
+    public Cliente(Long clienteId, String clienteCnpj, String clienteNome, Set<OrdemServico> ordemServicos) {
         this.clienteId = clienteId;
         this.clienteCnpj = clienteCnpj;
         this.clienteNome = clienteNome;
-    }
-
-    public Cliente(){
-
+        this.ordemServicos = ordemServicos;
     }
 
 
-
-
-
+    public Cliente() {
+    }
 
     public Long getClienteId() {
         return clienteId;
@@ -70,6 +61,15 @@ public class Cliente {
     public void setClienteNome(String clienteNome) {
         this.clienteNome = clienteNome;
     }
+
+    public Set<OrdemServico> getOrdemServicos() {
+        return ordemServicos;
+    }
+
+    public void setOrdemServicos(Set<OrdemServico> ordemServicos) {
+        this.ordemServicos = ordemServicos;
+    }
+
 
 
 }

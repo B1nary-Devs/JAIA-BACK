@@ -70,4 +70,6 @@ public class PrestadorDto {
     public void setSegmentoId(Long segmentoId) {
         this.segmentoId = segmentoId;
     }
+
+
 }

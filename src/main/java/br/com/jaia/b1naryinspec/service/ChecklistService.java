@@ -110,8 +110,6 @@ public class ChecklistService {
     private void copyDtoToEntity(ChecklistDTO dto, Checklist entity) {
         entity.setChecklistNome(dto.getChecklistNome());
 
-
-        entity.getSegmentos().clear();
         for (SegmentoDTO catDto : dto.getSegmentos()) {
             try {
                 Segmento category = segmentoRepository.getReferenceById(catDto.getId());

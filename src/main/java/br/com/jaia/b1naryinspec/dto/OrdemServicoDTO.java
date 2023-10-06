@@ -20,31 +20,22 @@ public class OrdemServicoDTO {
 
     private String descricao;
 
+    private Long cliente;
 
-    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao) {
+
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
         this.status = status;
         this.descricao = descricao;
+        this.cliente = cliente;
     }
+
 
 
     public OrdemServicoDTO() {
     }
-
-
-
-    public OrdemServicoDTO(OrdemServico entity){
-        this.servicoId = entity.getServicoId();
-        this.dataAbertura = entity.getDataAbertura();
-        this.dataFechamento = entity.getDataFechamento();
-        this.status = entity.getStatus();
-        this.descricao = entity.getDescricao();
-
-
-    }
-
 
     public Long getServicoId() {
         return servicoId;
@@ -85,4 +76,14 @@ public class OrdemServicoDTO {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public Long getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Long cliente) {
+        this.cliente = cliente;
+    }
+
+
 }
