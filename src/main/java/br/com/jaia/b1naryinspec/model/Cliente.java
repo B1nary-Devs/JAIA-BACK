@@ -1,6 +1,8 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Set;
@@ -24,6 +26,7 @@ public class Cliente {
 
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonBackReference
     private Set<OrdemServico> ordemServicos;
 
 

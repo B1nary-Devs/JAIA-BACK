@@ -1,7 +1,9 @@
 package br.com.jaia.b1naryinspec.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -33,7 +35,7 @@ public class OrdemServico {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonIgnore
+    @JsonManagedReference
     private Cliente cliente;
 
 
