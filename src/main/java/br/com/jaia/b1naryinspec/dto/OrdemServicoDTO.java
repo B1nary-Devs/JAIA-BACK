@@ -5,14 +5,17 @@ import br.com.jaia.b1naryinspec.model.OrdemServico;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 public class OrdemServicoDTO {
 
     private Long servicoId;
 
-
+    @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataAbertura = LocalDateTime.now();
 
+    @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataFechamento;
 
 
