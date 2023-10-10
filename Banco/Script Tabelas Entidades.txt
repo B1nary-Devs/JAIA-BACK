@@ -78,6 +78,16 @@ create table ordem_servico(
     REFERENCES CLIENTE (CLIENTE_ID)
     )
 
+
+CREATE TABLE relacao_ORDEM_SERVICO_checklist (
+    ORDEM_SERVICO_ID NUMBER,
+    checklist_id NUMBER,
+    CONSTRAINT FK_Relacao_ORDEM_SERVICO_Checklist_ORDEM_SERVICO FOREIGN KEY (ORDEM_SERVICO_ID) 
+    REFERENCES ordem_servico (ORDEM_SERVICO_ID),
+    CONSTRAINT FK_Relacao_Checklist_ORDEM_SERVICO_Checklist
+    FOREIGN KEY (checklist_id) REFERENCES Checklist (checklist_id)
+);
+
 CREATE TABLE RELACAO_ORDEM_SERVICO_PRESTADOR (
     ORDEM_SERVICO_ID NUMBER,
     PRESTADOR_ID NUMBER,
