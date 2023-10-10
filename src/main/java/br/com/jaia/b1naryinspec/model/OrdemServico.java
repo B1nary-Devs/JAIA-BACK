@@ -2,6 +2,7 @@ package br.com.jaia.b1naryinspec.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
@@ -19,9 +20,11 @@ public class OrdemServico {
     @Id
     private Long servicoId;
 
+    @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     @Column(name =  "data_abertura" )
     private LocalDateTime dataAbertura;
 
+    @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     @Column(name =  "data_fechamento" )
     private LocalDateTime dataFechamento;
 
