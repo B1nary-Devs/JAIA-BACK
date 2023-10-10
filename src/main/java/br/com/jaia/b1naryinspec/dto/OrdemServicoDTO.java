@@ -4,6 +4,7 @@ import br.com.jaia.b1naryinspec.model.OrdemServico;
 
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 public class OrdemServicoDTO {
@@ -83,6 +84,15 @@ public class OrdemServicoDTO {
 
     public void setCliente(Long cliente) {
         this.cliente = cliente;
+    }
+
+
+
+
+
+    public String getDataAberturaFormatada() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        return dataAbertura.format(formatter);
     }
 
 

@@ -3,6 +3,8 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
+import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import jakarta.transaction.Transactional;
@@ -30,7 +32,7 @@ public class PrestadorService implements PrestadorInterface {
             prestadorDto.getSenha() == null ||
             prestadorDto.getSenha().isBlank()||
             prestadorDto.getSegmentoId() == null ){
-                throw new IllegalArgumentException("Dados Invalidos");
+                throw new DataIntegrityViolationExceptionCustom("Dados Invalidos");
         }
         PrestadorServico prestador = new PrestadorServico();
         prestador.setCnpj(prestadorDto.getCnpj());
@@ -40,7 +42,7 @@ public class PrestadorService implements PrestadorInterface {
 
         // Busque a categoria com base no segmentoId
         Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
-                .orElseThrow(() -> new IllegalArgumentException("segmento não encontrado"));
+                .orElseThrow(() -> new ObjectNotFoundException("segmento não encontrado"));
 
         // define a categoria no prestador
         prestador.setSegmento(segmento);
@@ -61,7 +63,7 @@ public class PrestadorService implements PrestadorInterface {
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj) {
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByCnpj(cnpj);
         if(prestadorOp.isEmpty()){
-            throw new IllegalArgumentException("Prestador de serviço não encontrado!");
+            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
         }
 
         return prestadorOp.get();
@@ -71,7 +73,7 @@ public class PrestadorService implements PrestadorInterface {
     public PrestadorServico buscarPrestadorPorEmail(String email) {
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
         if(prestadorOp.isEmpty()){
-            throw new IllegalArgumentException("Prestador de serviço não encontrado!");
+            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
         }
         return prestadorOp.get();
     }
@@ -81,7 +83,7 @@ public class PrestadorService implements PrestadorInterface {
     public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
         if(prestadorOp.isEmpty()){
-             throw new IllegalArgumentException("Prestador de serviço não encontrado!");
+             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
         }
         return prestadorOp.get();
     }
@@ -91,7 +93,7 @@ public class PrestadorService implements PrestadorInterface {
 
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findById(prestadorId);
         if(prestadorOp.isEmpty()){
-             throw new IllegalArgumentException("Prestador de serviço não encontrado!");
+             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
         }
         PrestadorServico prestador = prestadorOp.get();
         prestador.setCnpj(prestadorDto.getCnpj());

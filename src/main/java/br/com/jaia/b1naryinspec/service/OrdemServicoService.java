@@ -5,8 +5,6 @@ import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
 import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.Cliente;
 import br.com.jaia.b1naryinspec.model.OrdemServico;
-import br.com.jaia.b1naryinspec.model.PrestadorServico;
-import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.repository.ClienteRepository;
 import br.com.jaia.b1naryinspec.repository.OrdemServicoRepository;
 import jakarta.transaction.Transactional;
