@@ -1,6 +1,7 @@
 package br.com.jaia.b1naryinspec.exceptions;
 
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
@@ -24,18 +25,28 @@ public class CustomExceptionHandler {
     }
 
 
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Object> DataIntegrityViolationExceptionCustom(DataIntegrityViolationException  ex) {
+        Map<String, Object> errorResponse = new HashMap<>();
+        errorResponse.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(EntityNotFoundException.class)
+    public ResponseEntity<Object> EntityNotFoundException(EntityNotFoundException ex) {
+        Map<String, Object> errorResponse = new HashMap<>();
+        errorResponse.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
+    }
 
 
-
-
-
-
-
-//    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-//    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, WebRequest request) {
-//        String mensagemDeErro = "Método HTTP não suportado. Verifique o método HTTP utilizado.";
-//        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(mensagemDeErro);
-//    }
+    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, WebRequest request) {
+        String mensagemDeErro = "Método HTTP não suportado. Verifique o método HTTP utilizado.";
+        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(mensagemDeErro);
+    }
 
 
 
