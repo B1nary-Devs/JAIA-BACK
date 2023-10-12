@@ -8,7 +8,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -36,20 +37,30 @@ public class OrdemServico {
     private String descricao;
 
 
+
+
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonManagedReference
     private Cliente cliente;
 
+    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+    @JoinTable(name = "relacao_ordem_servico_prestador",
+            joinColumns = @JoinColumn(name = "ordem_servico_id"),
+            inverseJoinColumns = @JoinColumn(name = "prestador_id"))
+    @JsonManagedReference
+    Set<PrestadorServico> prestador = new HashSet<>();
 
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente) {
+
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
         this.status = status;
         this.descricao = descricao;
         this.cliente = cliente;
+        this.prestador = prestador;
     }
+
 
     public OrdemServico() {
     }
@@ -100,6 +111,14 @@ public class OrdemServico {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Set<PrestadorServico> getPrestador() {
+        return prestador;
+    }
+
+    public void setPrestador(Set<PrestadorServico> prestador) {
+        this.prestador = prestador;
     }
 
 

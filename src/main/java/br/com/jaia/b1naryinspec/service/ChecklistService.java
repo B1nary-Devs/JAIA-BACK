@@ -115,7 +115,7 @@ public class ChecklistService {
                 Segmento category = segmentoRepository.getReferenceById(catDto.getId());
                 entity.getSegmentos().add(category);
             }catch (EntityNotFoundException e) {
-                // Lide com a exceção de entidade não encontrada de forma apropriada,
+
             }
 
         }

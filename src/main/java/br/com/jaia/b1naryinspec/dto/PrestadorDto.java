@@ -23,6 +23,8 @@ public class PrestadorDto {
     public PrestadorDto() {
     }
 
+
+
     public Long getPrestadorId() {
         return prestadorId;
     }

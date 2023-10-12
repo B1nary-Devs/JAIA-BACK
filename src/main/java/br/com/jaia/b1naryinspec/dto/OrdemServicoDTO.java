@@ -5,6 +5,7 @@ import br.com.jaia.b1naryinspec.model.OrdemServico;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -13,8 +14,13 @@ public class OrdemServicoDTO {
 
     private Long servicoId;
 
+
+
+
     @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataAbertura = LocalDateTime.now();
+
+
 
     @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataFechamento;
@@ -26,17 +32,18 @@ public class OrdemServicoDTO {
 
     private Long cliente;
 
+    private List<Long> prestadores;
 
-    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente) {
+
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
         this.status = status;
         this.descricao = descricao;
         this.cliente = cliente;
+        this.prestadores = prestadores;
     }
-
-
 
     public OrdemServicoDTO() {
     }
@@ -90,13 +97,11 @@ public class OrdemServicoDTO {
     }
 
 
-
-
-
-    public String getDataAberturaFormatada() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-        return dataAbertura.format(formatter);
+    public List<Long> getPrestadores() {
+        return prestadores;
     }
 
-
+    public void setPrestadores(List<Long> prestadores) {
+        this.prestadores = prestadores;
+    }
 }

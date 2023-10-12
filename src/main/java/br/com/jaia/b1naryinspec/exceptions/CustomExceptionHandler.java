@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
-public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
+public class CustomExceptionHandler {
 
     @ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<Object> handleObjectNotFoundException(ObjectNotFoundException ex) {
@@ -24,11 +24,18 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
-    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, WebRequest request) {
-        String mensagemDeErro = "Método HTTP não suportado. Verifique o método HTTP utilizado.";
-        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(mensagemDeErro);
-    }
+
+
+
+
+
+
+
+//    @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
+//    protected ResponseEntity<Object> handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException ex, WebRequest request) {
+//        String mensagemDeErro = "Método HTTP não suportado. Verifique o método HTTP utilizado.";
+//        return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(mensagemDeErro);
+//    }
 
 
 

@@ -26,14 +26,15 @@ public class PrestadorService implements PrestadorInterface {
 
     @Transactional
     public PrestadorServico novoPrestador(PrestadorDto prestadorDto) {
-        if(prestadorDto == null ||
-            prestadorDto.getEmail() == null ||
-            prestadorDto.getEmail().isBlank() ||
-            prestadorDto.getSenha() == null ||
-            prestadorDto.getSenha().isBlank()||
-            prestadorDto.getSegmentoId() == null ){
-                throw new DataIntegrityViolationExceptionCustom("Dados Invalidos");
+        if (prestadorDto == null ||
+                prestadorDto.getEmail() == null ||
+                prestadorDto.getEmail().isBlank() ||
+                prestadorDto.getSenha() == null ||
+                prestadorDto.getSenha().isBlank() ||
+                prestadorDto.getSegmentoId() == null) {
+            throw new DataIntegrityViolationExceptionCustom("Dados Inválidos");
         }
+
         PrestadorServico prestador = new PrestadorServico();
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
@@ -42,16 +43,12 @@ public class PrestadorService implements PrestadorInterface {
 
         // Busque a categoria com base no segmentoId
         Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
-                .orElseThrow(() -> new ObjectNotFoundException("segmento não encontrado"));
+                .orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado"));
 
-        // define a categoria no prestador
+        // Defina a categoria no prestador
         prestador.setSegmento(segmento);
 
         return prestadorRepo.save(prestador);
-
-
-
-
     }
 
     @Transactional
@@ -100,7 +97,7 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());        
-        
+
         return prestadorRepo.save(prestador);
     }
 
