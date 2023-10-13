@@ -2,9 +2,7 @@ package br.com.jaia.b1naryinspec.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
@@ -12,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "servicoId")
 @Entity
 public class OrdemServico {
 
@@ -41,7 +40,6 @@ public class OrdemServico {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-    @JsonIgnore
     private Cliente cliente;
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
@@ -63,7 +61,7 @@ public class OrdemServico {
 
     public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<Checklist> checklists) {
         this.servicoId = servicoId;
-        this.dataAbertura = dataAbertura;
+        this.dataAbertura = LocalDateTime.now();
         this.dataFechamento = dataFechamento;
         this.status = status;
         this.descricao = descricao;

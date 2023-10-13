@@ -23,6 +23,17 @@ public class SegmentoService {
 
 
 
+    @Transactional
+    public Segmento create(Segmento segmento) {
+        try {
+            // Certifique-se de que o ID seja nulo para evitar problemas
+            segmento.setId(null);
+            return segmentoRepository.save(segmento);
+        } catch (Exception e) {
+            throw new DataIntegrityViolationException("Erro ao inserir o segmento: " + e.getMessage());
+        }
+    }
+
 
     @Transactional
     public Segmento findById(Long id) {

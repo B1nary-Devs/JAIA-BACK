@@ -24,8 +24,12 @@ public class OrdemServicoService {
     }
 
     public void delete(Long id) {
-        OrdemServico ordemServico = findById(id);
-        ordemServicoRepository.delete(ordemServico);
+        Optional<OrdemServico> prestador = ordemServicoRepository.findById(id);
+        if (prestador.isPresent()) {
+            ordemServicoRepository.deleteById(id);
+        } else {
+            throw new ObjectNotFoundException("Ordem não encontrada com o ID: " + id);
+        }
     }
 
     public OrdemServico findById(Long id) {
