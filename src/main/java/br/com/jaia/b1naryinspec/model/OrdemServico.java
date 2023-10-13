@@ -3,6 +3,7 @@ package br.com.jaia.b1naryinspec.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -40,6 +41,7 @@ public class OrdemServico {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    @JsonIgnore
     private Cliente cliente;
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
@@ -50,7 +52,16 @@ public class OrdemServico {
     Set<PrestadorServico> prestador = new HashSet<>();
 
 
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador) {
+
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinTable(name = "relacao_ordem_servico_checklist",
+            joinColumns = @JoinColumn(name = "ordem_servico_id"),
+            inverseJoinColumns = @JoinColumn(name = "checklist_id"))
+    @JsonManagedReference
+    Set<Checklist> checklists = new HashSet<>();
+
+
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<Checklist> checklists) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -58,11 +69,12 @@ public class OrdemServico {
         this.descricao = descricao;
         this.cliente = cliente;
         this.prestador = prestador;
+        this.checklists = checklists;
     }
-
 
     public OrdemServico() {
     }
+
 
     public Long getServicoId() {
         return servicoId;
@@ -119,6 +131,19 @@ public class OrdemServico {
     public void setPrestador(Set<PrestadorServico> prestador) {
         this.prestador = prestador;
     }
+
+    public Set<Checklist> getChecklists() {
+        return checklists;
+    }
+
+    public void setChecklists(Set<Checklist> checklists) {
+        this.checklists = checklists;
+    }
+
+
+
+
+
 
 
 }

@@ -1,5 +1,8 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -22,14 +25,23 @@ public class Checklist {
     @JoinTable(name = "relacao_segmento_checklist",
             joinColumns = @JoinColumn(name = "checklist_id"),
             inverseJoinColumns = @JoinColumn(name = "segmento_id"))
+    @JsonManagedReference
     Set<Segmento> segmentos = new HashSet<>();
 
-    
 
-    public Checklist(Long checklistId, String checklistNome, Set<Segmento> segmentoList) {
+
+
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE},mappedBy = "checklists")
+    @JsonBackReference
+    private Set<OrdemServico> ordemServicoList = new HashSet<>();
+
+
+    public Checklist(Long checklistId, String checklistNome, Set<Segmento> segmentos, Set<OrdemServico> ordemServicoList) {
         this.checklistId = checklistId;
         this.checklistNome = checklistNome;
-        this.segmentos = segmentoList;
+        this.segmentos = segmentos;
+        this.ordemServicoList = ordemServicoList;
     }
 
 
@@ -59,9 +71,17 @@ public class Checklist {
 
     public void setSegmentos(Set<Segmento> segmentos) {
         this.segmentos = segmentos;
-
-
     }
+
+    public Set<OrdemServico> getOrdemServicoList() {
+        return ordemServicoList;
+    }
+
+    public void setOrdemServicoList(Set<OrdemServico> ordemServicoList) {
+        this.ordemServicoList = ordemServicoList;
+    }
+
+
 
 
 }

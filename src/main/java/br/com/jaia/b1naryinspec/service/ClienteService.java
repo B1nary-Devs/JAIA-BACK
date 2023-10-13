@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.jaia.b1naryinspec.dto.ClienteDTO;
 import br.com.jaia.b1naryinspec.model.Cliente;
 import br.com.jaia.b1naryinspec.repository.ClienteRepository;
 import jakarta.transaction.Transactional;
@@ -17,7 +16,7 @@ public class ClienteService {
     private ClienteRepository clienteRepo;
 
     @Transactional
-    public Cliente novoCliente(ClienteDTO clienteDto){
+    public Cliente novoCliente(Cliente clienteDto){
         if(clienteDto == null ){
             throw new IllegalArgumentException("Dados Invalidos!");
         }
@@ -64,7 +63,7 @@ public class ClienteService {
     }
 
     @Transactional
-    public Cliente updateCliente(Long clienteId, ClienteDTO clienteDto){
+    public Cliente updateCliente(Long clienteId, Cliente clienteDto){
 
         Optional<Cliente> clienteOp = clienteRepo.findById(clienteId);
         if(clienteOp.isEmpty()){

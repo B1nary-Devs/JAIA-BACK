@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.jaia.b1naryinspec.dto.ClienteDTO;
 import br.com.jaia.b1naryinspec.model.Cliente;
 import br.com.jaia.b1naryinspec.repository.ClienteRepository;
 import br.com.jaia.b1naryinspec.service.ClienteService;
@@ -65,12 +64,12 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> novoCliente(@RequestBody ClienteDTO clienteDto){
+    public ResponseEntity<Cliente> novoCliente(@RequestBody Cliente clienteDto){
         return ResponseEntity.status(HttpStatus.CREATED).body(cliente.novoCliente(clienteDto));
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Object> editarCliente(@PathVariable("id") Long clienteId, @RequestBody ClienteDTO clienteDto){
+    public ResponseEntity<Object> editarCliente(@PathVariable("id") Long clienteId, @RequestBody Cliente clienteDto){
         Optional<Cliente> clienteOp = clienteRepo.findById(clienteId);
         if(!clienteOp.isPresent()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente não encontrado!");

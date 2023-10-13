@@ -1,6 +1,7 @@
 package br.com.jaia.b1naryinspec.exceptions;
 
 
+import jakarta.validation.ValidationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @ControllerAdvice
-public class CustomExceptionHandler {
+public class CustomExceptionHandler  {
 
     @ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<Object> handleObjectNotFoundException(ObjectNotFoundException ex) {
@@ -47,6 +48,16 @@ public class CustomExceptionHandler {
         String mensagemDeErro = "Método HTTP não suportado. Verifique o método HTTP utilizado.";
         return ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(mensagemDeErro);
     }
+
+
+    @ExceptionHandler(ValidationException.class)
+    public ResponseEntity<Object> ValidationException(ValidationException ex) {
+        Map<String, Object> errorResponse = new HashMap<>();
+        errorResponse.put("message", ex.getMessage());
+
+        return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 
 
 
