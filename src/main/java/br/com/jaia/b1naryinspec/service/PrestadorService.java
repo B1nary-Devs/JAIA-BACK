@@ -97,7 +97,10 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
-        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());        
+        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
+        Segmento segmento = new Segmento();
+        segmento.setId(prestadorDto.getSegmentoId());
+        prestador.setSegmento(segmento);
         
         return prestadorRepo.save(prestador);
     }

@@ -4,89 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/B1naryinspecApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ClienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/OrdemServicoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/PrestadorController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/SegmentoController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ChecklistDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ClienteDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/OrdemServicoDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/PrestadorDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/SegmentoDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/exceptions/CustomExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/exceptions/DataIntegrityViolationExceptionCustom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/exceptions/ObjectNotFoundException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Checklist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/OrdemServico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/PrestadorServico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ChecklistRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ClienteRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/OrdemServicoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/PrestadorRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/SegmentoRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ClienteService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/SegmentoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/jaia/b1naryinspec/B1naryinspecApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/ChecklistController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/ClienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/OrdemServicoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/PrestadorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/CategoriaDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ChecklistDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ClienteDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/OrdemServicoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/PrestadorDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/SegmentoDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/Checklist.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/Cliente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/OrdemServico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/PrestadorServico.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/Segmento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/ChecklistRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/ClienteRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/OrdemServicoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/PrestadorRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/SegmentoRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ChecklistService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ClienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/OrdemServicoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SegmentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/cwallet.sso" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/ewallet.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/ewallet.pem" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/keystore.jks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/ojdbc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/sqlnet.ora" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/tnsnames.ora" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wallet/truststore.jks" beforeDir="false" />
-    </list>
+    <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,6 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 0
+}]]></component>
   <component name="ProjectId" id="2WMfA1Q8wX28DceC9KLdKtGh1Fz" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -114,7 +36,10 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Gilherme Alves/Documents/github/JAIA-BACK/pom.xml"
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "2Sprint",
+    "last_opened_file_path": "C:/Users/marce/OneDrive/Documentos/GitHub/JAIA-BACK/pom.xml",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -134,7 +59,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696547231039</updated>
+      <workItem from="1696704570483" duration="43000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

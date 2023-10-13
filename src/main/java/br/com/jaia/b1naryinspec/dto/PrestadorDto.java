@@ -11,6 +11,7 @@ public class PrestadorDto {
     private String prestadorNome;
     private Long segmentoId;
 
+
     public PrestadorDto(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Long segmentoId) {
         this.prestadorId = prestadorId;
         this.cnpj = cnpj;
@@ -20,7 +21,8 @@ public class PrestadorDto {
         this.segmentoId = segmentoId;
     }
 
-    public PrestadorDto() {
+    public PrestadorDto(){
+
     }
 
     public Long getPrestadorId() {
@@ -70,6 +72,4 @@ public class PrestadorDto {
     public void setSegmentoId(Long segmentoId) {
         this.segmentoId = segmentoId;
     }
-
-
 }

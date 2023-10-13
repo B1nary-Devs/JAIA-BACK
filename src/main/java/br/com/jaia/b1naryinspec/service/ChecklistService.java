@@ -35,9 +35,6 @@ public class ChecklistService {
 
 
 
-
-
-
     @Transactional
     public ChecklistDTO salvar(ChecklistDTO dto) {
         Checklist entity = new Checklist();
