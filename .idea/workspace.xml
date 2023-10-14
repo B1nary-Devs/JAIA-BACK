@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/OrdemServicoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/OrdemServicoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/SegmentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/SegmentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ChecklistDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ChecklistDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/SegmentoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/SegmentoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Checklist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Checklist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ChecklistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ChecklistRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/SegmentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/SegmentoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "2Sprint",
-    "last_opened_file_path": "C:/Users/marce/OneDrive/Documentos/GitHub/JAIA-BACK/pom.xml",
+    "last_opened_file_path": "C:/Users/marce/Downloads/New folder (2)/JAIA-BACK-1Sprint/b1naryinspec/pom.xml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,7 +107,10 @@
       <option name="presentableId" value="Default" />
       <updated>1696547231039</updated>
       <workItem from="1697247314430" duration="42000" />
-      <workItem from="1697247363318" duration="16391000" />
+      <workItem from="1697247363318" duration="17537000" />
+      <workItem from="1697300762146" duration="3529000" />
+      <workItem from="1697308951487" duration="3073000" />
+      <workItem from="1697315217350" duration="40000" />
     </task>
     <servers />
   </component>

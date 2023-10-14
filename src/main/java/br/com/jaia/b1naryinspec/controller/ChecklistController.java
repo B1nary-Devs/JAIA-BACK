@@ -2,6 +2,7 @@ package br.com.jaia.b1naryinspec.controller;
 
 
 import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
+import br.com.jaia.b1naryinspec.model.Checklist;
 import br.com.jaia.b1naryinspec.service.ChecklistService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -24,28 +25,25 @@ public class ChecklistController {
 
 
     @GetMapping
-    public ResponseEntity<List<ChecklistDTO>> findAll() {
-        List<ChecklistDTO> dtos = checklistService.findAllChecklistsWithCategorias();
-        return new ResponseEntity<>(dtos, HttpStatus.OK);
+    public ResponseEntity<List<Checklist>> buscarTudo(){
+        return ResponseEntity.status(HttpStatus.OK).body(checklistService.buscarTudo());
     }
+
 
     @PostMapping
-    public ResponseEntity<ChecklistDTO> insert(@Valid @RequestBody ChecklistDTO dto){
-        dto = checklistService.salvar(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(dto.getChecklistId()).toUri();
-
-
-        return ResponseEntity.created(uri).body(dto);
-
+    public ResponseEntity<Checklist> salvar(@RequestBody ChecklistDTO dto){
+        return ResponseEntity.status(HttpStatus.CREATED).body(checklistService.salvar(dto));
     }
 
 
-
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        checklistService.excluir(id);
-        return ResponseEntity.noContent().build();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteChecklist(@PathVariable(value = "id") Long id){
+        Checklist checklistOptional = checklistService.findByChecklistId(id);
+        if (checklistOptional == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
+        }
+        checklistService.delete(checklistOptional);
+        return ResponseEntity.status(HttpStatus.OK).body("Checklist Deletado");
     }
 
 

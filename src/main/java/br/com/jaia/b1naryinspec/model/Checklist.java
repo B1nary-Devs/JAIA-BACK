@@ -1,9 +1,11 @@
 package br.com.jaia.b1naryinspec.model;
 
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,7 +26,7 @@ public class Checklist {
     @JoinTable(name = "relacao_segmento_checklist",
             joinColumns = @JoinColumn(name = "checklist_id"),
             inverseJoinColumns = @JoinColumn(name = "segmento_id"))
-    Set<Segmento> segmentos = new HashSet<>();
+    private Set<Segmento> segmentos = new HashSet<>();
 
     
 
@@ -59,11 +61,8 @@ public class Checklist {
         return segmentos;
     }
 
+
     public void setSegmentos(Set<Segmento> segmentos) {
         this.segmentos = segmentos;
-
-
     }
-
-
 }

@@ -1,9 +1,11 @@
 package br.com.jaia.b1naryinspec.dto;
 
 import br.com.jaia.b1naryinspec.model.Checklist;
+import br.com.jaia.b1naryinspec.model.Segmento;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class ChecklistDTO {
@@ -13,18 +15,11 @@ public class ChecklistDTO {
 
     private String checklistNome;
 
-
-
-
     private List<SegmentoDTO> segmentos = new ArrayList<>();
-
 
 
     public ChecklistDTO() {
     }
-
-
-
 
 
     public ChecklistDTO(Checklist entity) {
@@ -34,7 +29,6 @@ public class ChecklistDTO {
     }
 
 
-
     public Long getChecklistId() {
         return checklistId;
     }
@@ -42,7 +36,6 @@ public class ChecklistDTO {
     public void setChecklistId(Long checklistId) {
         this.checklistId = checklistId;
     }
-
 
     public String getChecklistNome() {
         return checklistNome;
@@ -56,15 +49,7 @@ public class ChecklistDTO {
         return segmentos;
     }
 
-    public void setSegmentos(List<SegmentoDTO> categorias) {
-        this.segmentos = categorias;
+    public void setSegmentos(List<SegmentoDTO> segmentos) {
+        this.segmentos = segmentos;
     }
-
-
-
-
-
-
-
-
 }
