@@ -1,7 +1,8 @@
 package br.com.jaia.b1naryinspec.controller;
 
 
-
+import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
 import br.com.jaia.b1naryinspec.model.OrdemServico;
 import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.service.OrdemServicoService;
@@ -26,36 +27,26 @@ public class OrdemServicoController {
 
 
 
-    @PostMapping
-    public ResponseEntity<OrdemServico> insert(@RequestBody OrdemServico dto) {
-        OrdemServico createdDTO = ordemServicoService.create(dto);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}").buildAndExpand(createdDTO.getServicoId()).toUri();
 
-        return ResponseEntity.created(uri).body(createdDTO);
+
+    @PostMapping
+    public ResponseEntity<OrdemServicoDTO> insert(@RequestBody OrdemServicoDTO dto){
+        dto = ordemServicoService.create(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(dto.getServicoId()).toUri();
+
+
+        return ResponseEntity.created(uri).body(dto);
+
+
     }
+
 
     @GetMapping
     public ResponseEntity<List<OrdemServico>> listarTodasOrdens() {
-        List<OrdemServico> ordens = ordemServicoService.findAll();
+        List<OrdemServico> ordens = ordemServicoService.listartodos();
         return ResponseEntity.ok(ordens);
     }
-
-
-
-    @GetMapping("/{id}")
-    public ResponseEntity<OrdemServico> findById(@PathVariable Long id) {
-        OrdemServico ordemServico = ordemServicoService.findById(id);
-        return ResponseEntity.ok(ordemServico);
-    }
-
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id) {
-        ordemServicoService.delete(id);
-        return ResponseEntity.noContent().build();
-    }
-
 
 
 

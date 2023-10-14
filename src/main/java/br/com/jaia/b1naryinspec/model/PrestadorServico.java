@@ -33,7 +33,7 @@ public class PrestadorServico{
 
 
     @ManyToMany(mappedBy = "prestador")
-    @JsonIgnore
+    @JsonBackReference
     private Set<OrdemServico> ordemServicos = new HashSet<>();
 
 

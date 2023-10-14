@@ -1,18 +1,19 @@
 package br.com.jaia.b1naryinspec.service;
 
 
-import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationException;
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
+import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
 import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.Segmento;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @Service
 public class SegmentoService {
@@ -23,51 +24,62 @@ public class SegmentoService {
 
 
 
-
     @Transactional
-    public Segmento findById(Long id) {
-        Optional<Segmento> optionalSegmento = segmentoRepository.findById(id);
+    public SegmentoDTO FindById(Long id) {
+        Optional<Segmento> obj = segmentoRepository.findById(id);
+        Segmento entity = obj.orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado com o id: " + id));
+        return new SegmentoDTO(entity);
 
-        if (optionalSegmento.isPresent()) {
-            return optionalSegmento.get();
-        } else {
-            throw new ObjectNotFoundException("Segmento não encontrado com o id: " + id);
-        }
+
     }
 
+
+
     @Transactional
-    public List<Segmento> findAll() {
+    public List<Segmento> findAll(){
         return segmentoRepository.findAll();
+
     }
 
-    @Transactional(rollbackFor = Exception.class)
-    public Segmento insert(Segmento segmento) {
+
+    @Transactional(rollbackFor = Exception.class) // Defina exceções específicas, se aplicável
+    public SegmentoDTO insert(SegmentoDTO dto) {
         try {
-            return segmentoRepository.save(segmento);
+            Segmento entity = new Segmento();
+            entity.setNome(dto.getNome());
+            entity = segmentoRepository.save(entity);
+            return new SegmentoDTO(entity);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityViolationExceptionCustom("Erro ao inserir a categoria: " + e.getMessage());
         } catch (Exception e) {
-            throw new DataIntegrityViolationException("Erro ao inserir o segmento: " + e.getMessage());
+            throw new RuntimeException("Erro ao inserir a categoria: " + e.getMessage());
         }
     }
 
+
     @Transactional
-    public Segmento update(Long id, Segmento segmento) {
+    public SegmentoDTO update(Long id , SegmentoDTO dto) {
         try {
-            findById(id); // Verifica se o segmento existe antes de atualizar
-            segmento.setId(id); // Define o ID para garantir que a atualização seja para o segmento correto
-            return segmentoRepository.save(segmento);
+            Segmento entity = segmentoRepository.getReferenceById(id);
+            entity.setNome(dto.getNome());
+            entity = segmentoRepository.save(entity);
+            return new SegmentoDTO(entity);
         } catch (EntityNotFoundException e) {
-            throw new ObjectNotFoundException("Segmento não encontrado com o ID: " + id);
+            throw new ObjectNotFoundException("id nao localizado");
         }
     }
 
     public void delete(Long id) {
-        findById(id); // Verifica se o segmento existe antes de tentar excluir
-        try {
+        FindById(id);
+        try{
             segmentoRepository.deleteById(id);
-        } catch (org.springframework.dao.DataIntegrityViolationException e) {
-            throw new DataIntegrityViolationException("Segmento não pode ser deletado, pois possui Prestadores associados a ele.");
+        }catch (DataIntegrityViolationException e){
+            throw new DataIntegrityViolationExceptionCustom("Segmento nao pode ser deletado, pois possui Prestadores associados a esta");
+
         }
+
     }
+
 
 
 }

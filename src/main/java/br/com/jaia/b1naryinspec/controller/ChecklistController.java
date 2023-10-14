@@ -1,10 +1,10 @@
 package br.com.jaia.b1naryinspec.controller;
 
 
-
-import br.com.jaia.b1naryinspec.model.Checklist;
+import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
 import br.com.jaia.b1naryinspec.service.ChecklistService;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -24,9 +24,9 @@ public class ChecklistController {
 
 
     @GetMapping
-    public ResponseEntity<List<Checklist>> findAllChecklists() {
-        List<Checklist> checklists = checklistService.findAll();
-        return ResponseEntity.ok(checklists);
+    public ResponseEntity<List<ChecklistDTO>> findAll() {
+        List<ChecklistDTO> dtos = checklistService.findAllChecklistsWithCategorias();
+        return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
 
@@ -36,8 +36,8 @@ public class ChecklistController {
 
 
     @PostMapping
-    public ResponseEntity<Checklist> insert(@Valid @RequestBody Checklist dto){
-        dto = checklistService.create(dto);
+    public ResponseEntity<ChecklistDTO> insert(@Valid @RequestBody ChecklistDTO dto){
+        dto = checklistService.salvar(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(dto.getChecklistId()).toUri();
 
@@ -51,7 +51,7 @@ public class ChecklistController {
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
-        checklistService.delete(id);
+        checklistService.excluir(id);
         return ResponseEntity.noContent().build();
     }
 

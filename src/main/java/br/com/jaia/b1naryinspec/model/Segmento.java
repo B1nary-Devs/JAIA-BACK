@@ -1,6 +1,5 @@
 package br.com.jaia.b1naryinspec.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -31,7 +30,7 @@ public class Segmento {
 
 
     @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
-    @JsonBackReference
+    @JsonIgnore
     private Set<PrestadorServico> prestadorServicos;
 
 
@@ -122,7 +121,7 @@ public class Segmento {
 
 
 
-
+    
 
 
 }
