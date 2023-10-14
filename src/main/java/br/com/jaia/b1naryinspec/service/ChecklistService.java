@@ -78,13 +78,6 @@ public class ChecklistService {
 
 
 
-
-
-
-
-
-
-
     public void excluir(Long id) {
             Checklist checklist = checklistRepository.findById(id)
                     .orElseThrow(() -> new EntityNotFoundException("Checklist com ID " + id + " não encontrado"));
@@ -92,16 +85,6 @@ public class ChecklistService {
         checklist.getSegmentos().clear();
         checklistRepository.delete(checklist);
     }
-
-
-
-
-
-
-
-
-
-
 
 
 

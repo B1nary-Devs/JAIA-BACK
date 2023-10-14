@@ -14,17 +14,11 @@ public class OrdemServicoDTO {
 
     private Long servicoId;
 
-
-
-
     @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataAbertura = LocalDateTime.now();
 
-
-
     @JsonFormat(pattern = "dd/MM/yyyy  HH:mm:ss")
     private LocalDateTime dataFechamento;
-
 
     private String status;
 
@@ -34,8 +28,10 @@ public class OrdemServicoDTO {
 
     private List<Long> prestadores;
 
+    private List<Long> checklists;
 
-    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores) {
+
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores, List<Long> checklists) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -43,6 +39,7 @@ public class OrdemServicoDTO {
         this.descricao = descricao;
         this.cliente = cliente;
         this.prestadores = prestadores;
+        this.checklists = checklists;
     }
 
     public OrdemServicoDTO() {
@@ -96,12 +93,19 @@ public class OrdemServicoDTO {
         this.cliente = cliente;
     }
 
-
     public List<Long> getPrestadores() {
         return prestadores;
     }
 
     public void setPrestadores(List<Long> prestadores) {
         this.prestadores = prestadores;
+    }
+
+    public List<Long> getChecklists() {
+        return checklists;
+    }
+
+    public void setChecklists(List<Long> checklists) {
+        this.checklists = checklists;
     }
 }

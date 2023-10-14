@@ -3,6 +3,7 @@ package br.com.jaia.b1naryinspec.model;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 
 
 @Entity
+@Table(name = "ordem_servico")
 public class OrdemServico {
 
 
@@ -37,7 +39,6 @@ public class OrdemServico {
 
 
 
-
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
@@ -47,10 +48,15 @@ public class OrdemServico {
             joinColumns = @JoinColumn(name = "ordem_servico_id"),
             inverseJoinColumns = @JoinColumn(name = "prestador_id"))
     @JsonManagedReference
-    Set<PrestadorServico> prestador = new HashSet<>();
+    private Set<PrestadorServico> prestador = new HashSet<>();
 
+    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador) {
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura,
+                        LocalDateTime dataFechamento, String status,
+                        String descricao, Cliente cliente, Set<PrestadorServico> prestador,
+                        Set<ChecklistPersonalizado> checklistPersonalizados) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -58,8 +64,8 @@ public class OrdemServico {
         this.descricao = descricao;
         this.cliente = cliente;
         this.prestador = prestador;
+        this.checklistPersonalizados = checklistPersonalizados;
     }
-
 
     public OrdemServico() {
     }
@@ -120,5 +126,11 @@ public class OrdemServico {
         this.prestador = prestador;
     }
 
+    public Set<ChecklistPersonalizado> getChecklistPersonalizados() {
+        return checklistPersonalizados;
+    }
 
+    public void setChecklistPersonalizados(Set<ChecklistPersonalizado> checklistPersonalizados) {
+        this.checklistPersonalizados = checklistPersonalizados;
+    }
 }

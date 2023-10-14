@@ -67,6 +67,15 @@ public class PrestadorService implements PrestadorInterface {
     }
 
     @Transactional
+    public PrestadorServico findByPrestadorId(Long prestadorId) {
+        Optional<PrestadorServico> prestadorOp = Optional.ofNullable(prestadorRepo.findByPrestadorId(prestadorId));
+        if(prestadorOp.isEmpty()){
+            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
+        }
+        return prestadorOp.get();
+    }
+
+
     public PrestadorServico buscarPrestadorPorEmail(String email) {
         Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
         if(prestadorOp.isEmpty()){
@@ -74,6 +83,7 @@ public class PrestadorService implements PrestadorInterface {
         }
         return prestadorOp.get();
     }
+
 
 
     @Transactional
@@ -96,7 +106,11 @@ public class PrestadorService implements PrestadorInterface {
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
-        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());        
+        prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
+
+        Segmento segmento = new Segmento();
+        segmento.setId(prestadorDto.getSegmentoId());
+        prestador.setSegmento(segmento);
 
         return prestadorRepo.save(prestador);
     }
@@ -109,8 +123,6 @@ public class PrestadorService implements PrestadorInterface {
         }
         return prestadorOp;
     }
-
-
 
 
 

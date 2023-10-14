@@ -37,6 +37,17 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarTodosPrestadores());
     }
 
+    @GetMapping(value = "/{prestadorId}")
+    public ResponseEntity<Object> buscarPorId(@PathVariable("prestadorId") Long prestadorId){
+
+        Optional<PrestadorServico> prestadorOp = Optional.ofNullable(prestadorRepo.findByPrestadorId(prestadorId));
+        if(!prestadorOp.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(prestador.findByPrestadorId(prestadorId));
+    }
+
     @GetMapping(value = "/cnpj/{cnpj}")
     public ResponseEntity<Object> buscarPorCnpj(@PathVariable("cnpj") String cnpj){
 

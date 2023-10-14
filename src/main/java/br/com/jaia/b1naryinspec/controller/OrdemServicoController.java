@@ -2,31 +2,23 @@ package br.com.jaia.b1naryinspec.controller;
 
 
 import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
-import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
 import br.com.jaia.b1naryinspec.model.OrdemServico;
-import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.service.OrdemServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/ordemservico")
 public class OrdemServicoController {
 
-
-
-
     @Autowired
     OrdemServicoService ordemServicoService;
-
-
-
 
 
     @PostMapping
@@ -35,9 +27,7 @@ public class OrdemServicoController {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(dto.getServicoId()).toUri();
 
-
         return ResponseEntity.created(uri).body(dto);
-
 
     }
 
@@ -49,6 +39,16 @@ public class OrdemServicoController {
     }
 
 
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Object> buscarPorId(@PathVariable Long id){
+
+        OrdemServico OrdemServicoOptional = ordemServicoService.burcarPorId(id);
+        if (OrdemServicoOptional == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Ordem de Servico não encontrado!");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(OrdemServicoOptional);
+
+    }
 
 
 

@@ -21,4 +21,6 @@ public interface PrestadorInterface {
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto);
 
     public Optional<PrestadorServico> deletePrestador(Long prestadorId);
+
+    public PrestadorServico findByPrestadorId(Long prestadorId);
 }

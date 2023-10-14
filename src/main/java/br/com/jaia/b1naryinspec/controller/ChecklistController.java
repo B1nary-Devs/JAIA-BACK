@@ -29,12 +29,6 @@ public class ChecklistController {
         return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
-
-
-
-
-
-
     @PostMapping
     public ResponseEntity<ChecklistDTO> insert(@Valid @RequestBody ChecklistDTO dto){
         dto = checklistService.salvar(dto);
@@ -43,7 +37,6 @@ public class ChecklistController {
 
 
         return ResponseEntity.created(uri).body(dto);
-
 
     }
 

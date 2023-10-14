@@ -78,14 +78,7 @@ public class OrdemServicoService {
 
         return savedDTO;
 
-
-
-
     }
-
-
-
-
 
 
 
@@ -95,31 +88,9 @@ public class OrdemServicoService {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public OrdemServico burcarPorId(Long id){
+        return ordemServicoRepository.findOrdemServicoByServicoId(id);
+    }
 
 
 
