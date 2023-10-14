@@ -3,7 +3,6 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -81,7 +80,7 @@ public class ClienteService {
     public Optional<Cliente> deleteCliente(Long clienteId){
         Optional<Cliente> clienteOp = clienteRepo.findById(clienteId);
         if(clienteOp.isEmpty()){
-            throw new ObjectNotFoundException("Cliente não encontrado!");
+            throw new IllegalArgumentException("Cliente não encontrado!");
         }else{
             clienteRepo.deleteById(clienteId);
         }

@@ -32,7 +32,7 @@ public class SegmentoController {
 
     @PostMapping
     public ResponseEntity<Segmento> novosegmento(@RequestBody Segmento segmento) {
-        segmento = segmentoService.create(segmento);
+        segmento = segmentoService.insert(segmento);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(segmento.getId()).toUri();
         return ResponseEntity.created(uri).body(segmento);

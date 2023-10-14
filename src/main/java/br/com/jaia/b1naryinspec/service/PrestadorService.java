@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 
-import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationException;
-import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,12 +46,7 @@ public class PrestadorService {
 
 
     public void delete(Long id) {
-        Optional<PrestadorServico> prestador = prestadorRepo.findById(id);
-        if (prestador.isPresent()) {
-            prestadorRepo.deleteById(id);
-        } else {
-            throw new ObjectNotFoundException("Prestador não encontrado com o ID: " + id);
-        }
+        prestadorRepo.deleteById(id);
     }
 
 
