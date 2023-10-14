@@ -43,6 +43,7 @@ public class OrdemServicoService {
     public OrdemServicoDTO create(OrdemServicoDTO dto) {
 
         OrdemServico entity = new OrdemServico();
+        entity.setServicoId(dto.getServicoId());
         entity.setDataAbertura(dto.getDataAbertura());
         entity.setDataFechamento(dto.getDataFechamento());
         entity.setStatus(dto.getStatus());

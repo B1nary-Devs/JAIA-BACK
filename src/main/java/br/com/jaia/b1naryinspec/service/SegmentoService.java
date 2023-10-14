@@ -25,7 +25,7 @@ public class SegmentoService {
 
 
     @Transactional
-    public SegmentoDTO FindById(Long id) {
+    public SegmentoDTO findById(Long id) {
         Optional<Segmento> obj = segmentoRepository.findById(id);
         Segmento entity = obj.orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado com o id: " + id));
         return new SegmentoDTO(entity);
@@ -70,7 +70,7 @@ public class SegmentoService {
     }
 
     public void delete(Long id) {
-        FindById(id);
+        findById(id);
         try{
             segmentoRepository.deleteById(id);
         }catch (DataIntegrityViolationException e){

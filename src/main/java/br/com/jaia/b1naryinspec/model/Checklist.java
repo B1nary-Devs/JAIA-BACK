@@ -1,5 +1,6 @@
 package br.com.jaia.b1naryinspec.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -19,6 +20,7 @@ public class Checklist {
 
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
+    @JsonIgnore
     @JoinTable(name = "relacao_segmento_checklist",
             joinColumns = @JoinColumn(name = "checklist_id"),
             inverseJoinColumns = @JoinColumn(name = "segmento_id"))

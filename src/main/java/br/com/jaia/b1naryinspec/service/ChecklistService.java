@@ -90,6 +90,7 @@ public class ChecklistService {
 
 
 
+
     private void copyDtoToEntity(ChecklistDTO dto, Checklist entity) {
         entity.setChecklistNome(dto.getChecklistNome());
 

@@ -2,12 +2,17 @@ package br.com.jaia.b1naryinspec.dto;
 
 import br.com.jaia.b1naryinspec.model.Segmento;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class SegmentoDTO {
 
     private Long id;
     private String nome;
+
+
+    private List<ChecklistDTO> checklists= new ArrayList<>();
 
     public SegmentoDTO() {
     }

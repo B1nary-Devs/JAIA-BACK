@@ -25,16 +25,12 @@ public class Segmento {
 
 
     @ManyToMany(mappedBy = "segmentos")
-    @JsonIgnore
     private Set<Checklist> checklistList = new HashSet<>();
 
 
     @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonIgnore
     private Set<PrestadorServico> prestadorServicos;
-
-
-
 
 
 
