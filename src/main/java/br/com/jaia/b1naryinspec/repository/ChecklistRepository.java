@@ -12,7 +12,5 @@ import java.util.List;
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
 
 
-    Checklist findByChecklistId(Long id);
 
-    Checklist findByChecklistNome(String nome);
 }

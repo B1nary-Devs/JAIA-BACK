@@ -13,16 +13,24 @@ public class SegmentoDTO {
     private String nome;
 
 
-    private List<ChecklistDTO> checklists= new ArrayList<>();
-
-    public SegmentoDTO(Long id, String nome, List<ChecklistDTO> checklists) {
-        this.id = id;
-        this.nome = nome;
-        this.checklists = checklists;
-    }
+    private List<ChecklistGetDTO> checklistList= new ArrayList<>();
 
     public SegmentoDTO() {
     }
+
+
+    public SegmentoDTO(Long id, String nome, List<ChecklistGetDTO> checklistList) {
+        this.id = id;
+        this.nome = nome;
+        this.checklistList = checklistList;
+    }
+
+    public SegmentoDTO(Segmento entity){
+        this.id = entity.getId();
+        this.nome = entity.getNome();
+        entity.getChecklistList().forEach(cat -> this.checklistList.add(new ChecklistGetDTO(cat)));
+    }
+
 
     public Long getId() {
         return id;
@@ -40,11 +48,12 @@ public class SegmentoDTO {
         this.nome = nome;
     }
 
-    public List<ChecklistDTO> getChecklists() {
-        return checklists;
+
+    public List<ChecklistGetDTO> getChecklistList() {
+        return checklistList;
     }
 
-    public void setChecklists(List<ChecklistDTO> checklists) {
-        this.checklists = checklists;
+    public void setChecklistList(List<ChecklistGetDTO> checklistList) {
+        this.checklistList = checklistList;
     }
 }

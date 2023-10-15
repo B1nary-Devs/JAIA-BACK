@@ -25,6 +25,8 @@ public class SegmentoController {
     @Autowired
     private SegmentoService segmentoService;
 
+
+
     @GetMapping
     public ResponseEntity<List<SegmentoDTO>> findAll(){
         List<Segmento> list = segmentoService.findAll();

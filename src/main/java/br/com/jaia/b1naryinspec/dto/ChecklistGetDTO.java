@@ -6,35 +6,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ChecklistDTO {
+public class ChecklistGetDTO {
 
     private Long checklistId;
-
 
     private String checklistNome;
 
 
 
 
-    private List<SegmentoDTO> segmentos = new ArrayList<>();
-
-
-
-    public ChecklistDTO() {
+    public ChecklistGetDTO() {
     }
 
-    public ChecklistDTO(Long checklistId, String checklistNome, List<SegmentoDTO> segmentos) {
+
+    public ChecklistGetDTO(Long checklistId, String checklistNome) {
         this.checklistId = checklistId;
         this.checklistNome = checklistNome;
-        this.segmentos = segmentos;
     }
 
-    public ChecklistDTO(Checklist entity) {
+
+    public ChecklistGetDTO(Checklist entity) {
         this.checklistId = entity.getChecklistId();
         this.checklistNome = entity.getChecklistNome();
-        entity.getSegmentos().forEach(cat -> this.segmentos.add(new SegmentoDTO(cat)));
     }
-
 
     public Long getChecklistId() {
         return checklistId;
@@ -44,7 +38,6 @@ public class ChecklistDTO {
         this.checklistId = checklistId;
     }
 
-
     public String getChecklistNome() {
         return checklistNome;
     }
@@ -52,15 +45,4 @@ public class ChecklistDTO {
     public void setChecklistNome(String checklistNome) {
         this.checklistNome = checklistNome;
     }
-
-    public List<SegmentoDTO> getSegmentos() {
-        return segmentos;
-    }
-
-    public void setSegmentos(List<SegmentoDTO> categorias) {
-        this.segmentos = categorias;
-    }
-
-
-
 }

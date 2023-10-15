@@ -53,8 +53,15 @@ public class PrestadorService implements PrestadorInterface {
 
     @Transactional
     public List<PrestadorServico> buscarTodosPrestadores() {
+
+
         return prestadorRepo.findAll();
     }
+
+
+
+
+
 
     @Transactional
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj) {

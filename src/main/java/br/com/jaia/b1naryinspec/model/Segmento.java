@@ -32,14 +32,13 @@ public class Segmento {
     @JsonIgnore
     private Set<PrestadorServico> prestadorServicos;
 
-    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
-        this.id = id;
-        this.nome = nome;
-        this.checklistList = checklistList;
-        this.prestadorServicos = prestadorServicos;
-    }
+
 
     public Segmento() {
+    }
+
+    public Segmento(String nome) {
+        this.nome = nome;
     }
 
     public Long getId() {
@@ -50,6 +49,7 @@ public class Segmento {
         this.id = id;
     }
 
+
     public String getNome() {
         return nome;
     }
@@ -57,6 +57,17 @@ public class Segmento {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+
+
+    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
+        this.id = id;
+        this.nome = nome;
+        this.checklistList = checklistList;
+        this.prestadorServicos = prestadorServicos;
+    }
+
+
 
     public Set<Checklist> getChecklistList() {
         return checklistList;
@@ -66,6 +77,12 @@ public class Segmento {
         this.checklistList = checklistList;
     }
 
+
+    public Segmento(Set<PrestadorServico> prestadorServicos) {
+        this.prestadorServicos = prestadorServicos;
+    }
+
+
     public Set<PrestadorServico> getPrestadorServicos() {
         return prestadorServicos;
     }
@@ -73,4 +90,8 @@ public class Segmento {
     public void setPrestadorServicos(Set<PrestadorServico> prestadorServicos) {
         this.prestadorServicos = prestadorServicos;
     }
+
+
+
+
 }

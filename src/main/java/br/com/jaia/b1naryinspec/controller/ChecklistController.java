@@ -25,25 +25,29 @@ public class ChecklistController {
 
 
     @GetMapping
-    public ResponseEntity<List<Checklist>> buscarTudo(){
-        return ResponseEntity.status(HttpStatus.OK).body(checklistService.buscarTudo());
+    public ResponseEntity<List<Checklist>> findAll() {
+        List<Checklist> dtos = checklistService.findAll();
+        return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
 
 
     @PostMapping
-    public ResponseEntity<Checklist> salvar(@RequestBody ChecklistDTO dto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(checklistService.salvar(dto));
+    public ResponseEntity<ChecklistDTO> insert(@Valid @RequestBody ChecklistDTO dto){
+        dto = checklistService.salvar(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(dto.getChecklistId()).toUri();
+
+
+        return ResponseEntity.created(uri).body(dto);
+
     }
 
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteChecklist(@PathVariable(value = "id") Long id){
-        Checklist checklistOptional = checklistService.findByChecklistId(id);
-        if (checklistOptional == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado!");
-        }
-        checklistService.delete(checklistOptional);
-        return ResponseEntity.status(HttpStatus.OK).body("Checklist Deletado");
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        checklistService.excluir(id);
+        return ResponseEntity.noContent().build();
     }
 
 

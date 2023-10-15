@@ -1,9 +1,11 @@
 package br.com.jaia.b1naryinspec.service;
 
 
+import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
 import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
 import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
 import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
+import br.com.jaia.b1naryinspec.model.Checklist;
 import br.com.jaia.b1naryinspec.model.Segmento;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +43,11 @@ public class SegmentoService {
         return segmentoRepository.findAll();
 
     }
+
+
+
+
+
 
 
     @Transactional(rollbackFor = Exception.class) // Defina exceções específicas, se aplicável
