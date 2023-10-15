@@ -2,7 +2,9 @@ package br.com.jaia.b1naryinspec.controller;
 
 
 import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
+import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
 import br.com.jaia.b1naryinspec.model.Checklist;
+import br.com.jaia.b1naryinspec.model.OrdemServico;
 import br.com.jaia.b1naryinspec.service.ChecklistService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -42,6 +44,19 @@ public class ChecklistController {
 
     }
 
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Object> editarChecklist(@PathVariable("id") Long id, @RequestBody ChecklistDTO dto ){
+
+        Checklist ordemOp = checklistService.findById(id);
+        if(ordemOp == null){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Checklist não encontrado");
+        }
+
+        dto.setChecklistId(id);
+
+        return ResponseEntity.status(HttpStatus.OK).body(checklistService.salvar(dto));
+    }
 
 
     @DeleteMapping(value = "/{id}")
