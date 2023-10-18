@@ -35,6 +35,7 @@ public class ChecklistService {
     @Transactional
     public ChecklistDTO salvar(ChecklistDTO dto) {
         Checklist entity = new Checklist();
+        entity.setChecklistId(dto.getChecklistId());
         copyDtoToEntity(dto, entity);
         entity = checklistRepository.save(entity);
         return new ChecklistDTO(entity);

@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ChecklistDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ChecklistDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/SegmentoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/SegmentoDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ChecklistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ChecklistService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/OrdemServicoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/OrdemServicoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SegmentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SegmentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JAIA-FRONT" beforeDir="false" afterPath="$PROJECT_DIR$/../JAIA-FRONT" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +63,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;2Sprint&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marce/OneDrive/Documentos/GitHub/JAIA-BACK/pom.xml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marcelo/Documents/GitHub/JAIA-SOFTWARE/JAIA-BACK/pom.xml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d7b1a4cb31979d517b4f67d02f9f2d91&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -112,6 +120,9 @@
       <workItem from="1697398116517" duration="148000" />
       <workItem from="1697398518995" duration="9000" />
       <workItem from="1697398620193" duration="324000" />
+      <workItem from="1697493808734" duration="6996000" />
+      <workItem from="1697581093860" duration="1474000" />
+      <workItem from="1697666501337" duration="1703000" />
     </task>
     <servers />
   </component>
