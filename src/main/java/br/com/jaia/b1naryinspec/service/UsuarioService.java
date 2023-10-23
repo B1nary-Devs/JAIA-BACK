@@ -43,4 +43,19 @@ public class UsuarioService {
         }
         return usuarioOp.get();
     }
+
+    @Transactional
+    public Usuario updateUsuario(Long usuarioId, UsuarioDTO usuarioDTO){
+        Optional<Usuario> usuarioOp = usuarioRepo.findById(usuarioId);
+        if(usuarioOp.isEmpty()){
+            throw new IllegalArgumentException("Usuário não encontrado!");
+        }
+
+        Usuario usuario = usuarioOp.get();
+        usuario.setEmail(usuarioDTO.getEmail());
+        usuario.setSenha(usuarioDTO.getSenha());
+
+        return usuarioRepo.save(usuario);
+    }
+
 }

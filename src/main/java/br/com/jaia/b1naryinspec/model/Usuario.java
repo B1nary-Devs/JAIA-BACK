@@ -67,7 +67,7 @@ public class Usuario {
         return acesso;
     }
 
-    public void setAceso(String acesso) {
+    public void setAcesso(String acesso) {
         this.acesso = acesso;
     }
 
