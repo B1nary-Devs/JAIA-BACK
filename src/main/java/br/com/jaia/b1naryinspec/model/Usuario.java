@@ -1,16 +1,11 @@
 package br.com.jaia.b1naryinspec.model;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario {
 
     @Id
@@ -27,17 +22,20 @@ public class Usuario {
     @Column(name = "acesso")
     private String acesso;
 
-    public Usuario(Long usuarioId, String email, String senha, String acesso) {
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private PrestadorServico prestadorServico;
+
+    public Usuario(Long usuarioId, String email, String senha, String acesso, PrestadorServico prestadorServico) {
         this.usuarioId = usuarioId;
         this.email = email;
         this.senha = senha;
         this.acesso = acesso;
+        this.prestadorServico = prestadorServico;
     }
-
 
     public Usuario() {
     }
-
 
     public Long getUsuarioId() {
         return usuarioId;
@@ -71,5 +69,11 @@ public class Usuario {
         this.acesso = acesso;
     }
 
+    public PrestadorServico getPrestadorServico() {
+        return prestadorServico;
+    }
 
+    public void setPrestadorServico(PrestadorServico prestadorServico) {
+        this.prestadorServico = prestadorServico;
+    }
 }

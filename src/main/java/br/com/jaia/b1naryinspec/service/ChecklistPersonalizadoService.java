@@ -34,7 +34,9 @@ public class ChecklistPersonalizadoService {
     public ChecklistPersonalizado salvar(ChecklistPersonalizadoDTO dto) {
 
         ChecklistPersonalizado checklistPersonalizado =  new ChecklistPersonalizado();
+        checklistPersonalizado.setChecklistPersonalizadoId(dto.getChecklistPersonalizadoId());
         checklistPersonalizado.setChecklistPersonalizadoNome(dto.getChecklistPersonalizadoNome());
+        checklistPersonalizado.setDescricao(dto.getDescricao());
 
         OrdemServico ordem = new OrdemServico();
 

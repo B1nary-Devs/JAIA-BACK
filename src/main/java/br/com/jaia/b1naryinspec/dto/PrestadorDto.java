@@ -1,29 +1,34 @@
 package br.com.jaia.b1naryinspec.dto;
 
 
+import br.com.jaia.b1naryinspec.model.PrestadorServico;
+import br.com.jaia.b1naryinspec.model.Segmento;
 
 public class PrestadorDto {
-   
+
     private Long prestadorId;
     private String cnpj;
-    private String email;
-    private String senha;
     private String prestadorNome;
     private Long segmentoId;
+    private Long usuarioId;
 
-    public PrestadorDto(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Long segmentoId) {
+    public PrestadorDto(Long prestadorId, String cnpj, String prestadorNome, Long segmentoId, Long usuarioId) {
         this.prestadorId = prestadorId;
         this.cnpj = cnpj;
-        this.email = email;
-        this.senha = senha;
         this.prestadorNome = prestadorNome;
         this.segmentoId = segmentoId;
+        this.usuarioId = usuarioId;
+    }
+
+    public PrestadorDto(PrestadorServico entity) {
+        this.prestadorId = entity.getPrestadorId();
+        this.cnpj = entity.getCnpj();
+        this.prestadorNome = entity.getPrestadorNome();
+
     }
 
     public PrestadorDto() {
     }
-
-
 
     public Long getPrestadorId() {
         return prestadorId;
@@ -41,22 +46,6 @@ public class PrestadorDto {
         this.cnpj = cnpj;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public String getPrestadorNome() {
         return prestadorNome;
     }
@@ -71,6 +60,14 @@ public class PrestadorDto {
 
     public void setSegmentoId(Long segmentoId) {
         this.segmentoId = segmentoId;
+    }
+
+    public Long getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(Long usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
 

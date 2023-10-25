@@ -14,7 +14,6 @@ public interface PrestadorInterface {
 
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj);
 
-    public PrestadorServico buscarPrestadorPorEmail( String  email);
 
     public PrestadorServico buscarPrestadorPorNome(String prestadorNome);
 

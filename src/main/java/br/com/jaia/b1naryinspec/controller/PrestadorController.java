@@ -3,7 +3,11 @@ package br.com.jaia.b1naryinspec.controller;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
+import br.com.jaia.b1naryinspec.model.Segmento;
+import br.com.jaia.b1naryinspec.service.PrestadorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,7 +31,7 @@ import br.com.jaia.b1naryinspec.service.PrestadorInterface;
 public class PrestadorController{
 
     @Autowired
-    private PrestadorInterface prestador;
+    private PrestadorService prestador;
 
     @Autowired
     private PrestadorRepository prestadorRepo;
@@ -36,6 +40,8 @@ public class PrestadorController{
     public ResponseEntity<List<PrestadorServico>> todosPrestadores(){
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarTodosPrestadores());
     }
+
+
 
     @GetMapping(value = "/{prestadorId}")
     public ResponseEntity<Object> buscarPorId(@PathVariable("prestadorId") Long prestadorId){
@@ -59,16 +65,16 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadoPorCnpj(cnpj));
     }
 
-    @GetMapping(value = "/email/{email}")
-    public ResponseEntity<Object> buscarPorEmail(@PathVariable("email") String email){
-
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
-        if(!prestadorOp.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorEmail(email));
-    }
+//    @GetMapping(value = "/email/{email}")
+//    public ResponseEntity<Object> buscarPorEmail(@PathVariable("email") String email){
+//
+//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
+//        if(!prestadorOp.isPresent()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorEmail(email));
+//    }
 
     @GetMapping(value = "/nome/{prestadorNome}")
     public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){

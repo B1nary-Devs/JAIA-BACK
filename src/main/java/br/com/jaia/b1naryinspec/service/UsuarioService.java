@@ -26,6 +26,7 @@ public class UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setSenha(usuarioDTO.getSenha());
+        usuario.setAcesso(usuarioDTO.getAcesso());
 
         return usuarioRepo.save(usuario);
     }
@@ -54,6 +55,8 @@ public class UsuarioService {
         Usuario usuario = usuarioOp.get();
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setSenha(usuarioDTO.getSenha());
+        usuario.setAcesso(usuarioDTO.getAcesso());
+
 
         return usuarioRepo.save(usuario);
     }

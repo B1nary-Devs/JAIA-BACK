@@ -21,8 +21,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table( name = "prestador" )
-@PrimaryKeyJoinColumn(name="usuarioId")
-public class PrestadorServico extends Usuario {
+public class PrestadorServico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,10 +34,6 @@ public class PrestadorServico extends Usuario {
     @Column(name = "PRESTADOR_NOME")
     private String prestadorNome;
 
-    @OneToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
-
     @ManyToMany(mappedBy = "prestador")
     @JsonBackReference
     private Set<OrdemServico> ordemServicos = new HashSet<>();
@@ -48,15 +43,19 @@ public class PrestadorServico extends Usuario {
     @JoinColumn(name = "segmento_id")
     private Segmento segmento;
 
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    public PrestadorServico(Long prestadorId, String cnpj, String prestadorNome, Set<OrdemServico> ordemServicos, Segmento segmento) {
+
+    public PrestadorServico(Long prestadorId, String cnpj, String prestadorNome, Set<OrdemServico> ordemServicos, Segmento segmento, Usuario usuario) {
         this.prestadorId = prestadorId;
         this.cnpj = cnpj;
         this.prestadorNome = prestadorNome;
         this.ordemServicos = ordemServicos;
         this.segmento = segmento;
+        this.usuario = usuario;
     }
-
 
     public PrestadorServico() {
     }
@@ -102,6 +101,11 @@ public class PrestadorServico extends Usuario {
         this.segmento = segmento;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
