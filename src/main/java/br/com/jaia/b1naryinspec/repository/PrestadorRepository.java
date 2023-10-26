@@ -20,4 +20,8 @@ public interface PrestadorRepository extends JpaRepository <PrestadorServico, Lo
     public PrestadorServico findByPrestadorId(Long prestadorId);
 
     List<PrestadorServico> findAllById(Iterable<Long> ids);
+
+    public PrestadorServico findByUsuarioUsuarioId(Long usuarioId);
+
+
 }

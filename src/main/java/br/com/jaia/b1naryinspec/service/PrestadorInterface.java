@@ -14,6 +14,7 @@ public interface PrestadorInterface {
 
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj);
 
+    public PrestadorServico findByUsuarioUsuarioId(Long usuarioId);
 
     public PrestadorServico buscarPrestadorPorNome(String prestadorNome);
 

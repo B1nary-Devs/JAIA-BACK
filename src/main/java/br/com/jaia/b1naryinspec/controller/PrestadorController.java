@@ -116,5 +116,16 @@ public class PrestadorController{
     }
 
 
+    @GetMapping(value = "/usuario/{id}")
+    public ResponseEntity<Object> buscarPrestadorPorUsuarioId(@PathVariable("id") Long id){
+
+        Optional<PrestadorServico> prestadorOp = Optional.ofNullable(prestadorRepo.findByUsuarioUsuarioId(id));
+        if(!prestadorOp.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(prestadorOp);
+    }
+
 
 }

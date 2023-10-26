@@ -141,7 +141,11 @@ public class PrestadorService implements PrestadorInterface {
     }
 
 
+    @Override
+    public PrestadorServico findByUsuarioUsuarioId(Long usuarioId){
+        return prestadorRepo.findByUsuarioUsuarioId(usuarioId);
 
+    }
 
 
 
