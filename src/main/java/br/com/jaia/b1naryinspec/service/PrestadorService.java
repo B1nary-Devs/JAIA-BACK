@@ -3,17 +3,19 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
-import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
-import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
-import br.com.jaia.b1naryinspec.model.Segmento;
-import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.jaia.b1naryinspec.dto.PrestadorDto;
+import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
+import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.PrestadorServico;
+import br.com.jaia.b1naryinspec.model.Segmento;
+import br.com.jaia.b1naryinspec.model.Usuario;
 import br.com.jaia.b1naryinspec.repository.PrestadorRepository;
+import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
+import br.com.jaia.b1naryinspec.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
 
 @Service
 public class PrestadorService implements PrestadorInterface {
@@ -23,6 +25,9 @@ public class PrestadorService implements PrestadorInterface {
 
     @Autowired
     private SegmentoRepository segmentoRepository;
+
+    @Autowired
+    private UsuarioRepository usuarioRepository;
 
     @Transactional
     public PrestadorServico novoPrestador(PrestadorDto prestadorDto) {
@@ -34,12 +39,17 @@ public class PrestadorService implements PrestadorInterface {
                 prestadorDto.getSegmentoId() == null) {
             throw new DataIntegrityViolationExceptionCustom("Dados Inválidos");
         }
-
+        
         PrestadorServico prestador = new PrestadorServico();
         prestador.setCnpj(prestadorDto.getCnpj());
         prestador.setEmail(prestadorDto.getEmail());
         prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
+
+        Usuario usuario = usuarioRepository.findById(prestadorDto.getUsuarioId())
+            .orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado"));
+
+        prestador.setUsuario(usuario);
 
         // Busque a categoria com base no segmentoId
         Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
@@ -57,11 +67,6 @@ public class PrestadorService implements PrestadorInterface {
 
         return prestadorRepo.findAll();
     }
-
-
-
-
-
 
     @Transactional
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj) {
@@ -111,13 +116,16 @@ public class PrestadorService implements PrestadorInterface {
         }
         PrestadorServico prestador = prestadorOp.get();
         prestador.setCnpj(prestadorDto.getCnpj());
-        prestador.setEmail(prestadorDto.getEmail());
-        prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
 
         Segmento segmento = new Segmento();
         segmento.setId(prestadorDto.getSegmentoId());
         prestador.setSegmento(segmento);
+
+        Usuario usuario = new Usuario();
+        usuario.setEmail(prestadorDto.getEmail());
+        usuario.setSenha(prestadorDto.getSenha());
+        prestador.setUsuario(usuario);
 
         return prestadorRepo.save(prestador);
     }
@@ -130,10 +138,5 @@ public class PrestadorService implements PrestadorInterface {
         }
         return prestadorOp;
     }
-
-
-
-
-
 
 }

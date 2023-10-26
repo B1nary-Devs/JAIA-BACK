@@ -9,13 +9,15 @@ public class PrestadorDto {
     private String email;
     private String senha;
     private String prestadorNome;
-    private Long segmentoId;
+    private Long segmentoId;    
+    private Long usuarioId;
 
-    public PrestadorDto(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Long segmentoId) {
-        this.prestadorId = prestadorId;
-        this.cnpj = cnpj;
+    public PrestadorDto(String email, String senha, Long usuarioId, Long prestadorId, String cnpj, String prestadorNome, Long segmentoId) {
         this.email = email;
         this.senha = senha;
+        this.usuarioId = usuarioId;
+        this.prestadorId = prestadorId;
+        this.cnpj = cnpj;
         this.prestadorNome = prestadorNome;
         this.segmentoId = segmentoId;
     }
@@ -73,5 +75,11 @@ public class PrestadorDto {
         this.segmentoId = segmentoId;
     }
 
+    public Long getUsuarioId(){
+        return usuarioId;
+    }
 
+    public void setUsuarioId(Long usuarioId){
+        this.usuarioId = usuarioId;
+    }
 }
