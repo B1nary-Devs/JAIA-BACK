@@ -52,7 +52,7 @@ public class AuthenticationService {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmail(),
-                        request.getEmail()
+                        request.getSenha()
                 )
         );
         var user = usuarioRepository.findByEmail(request.getEmail())

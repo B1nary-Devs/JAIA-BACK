@@ -44,9 +44,8 @@ public class SecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req ->
-                        req.requestMatchers(WHITE_LIST_URL)
+                        req.requestMatchers("/auth/login", "/auth/register")
                                 .permitAll()
-//                                .requestMatchers("").hasAnyRole(ADMIN.name())
                                 .anyRequest()
                                 .authenticated()
                 )
@@ -58,6 +57,12 @@ public class SecurityConfig {
 
         return http.build();
     }
+
+
+    public SecurityConfig() {
+    }
+
+
 
 
 
