@@ -37,8 +37,8 @@ public class PrestadorService implements PrestadorInterface {
 
         PrestadorServico prestador = new PrestadorServico();
         prestador.setCnpj(prestadorDto.getCnpj());
-        prestador.setEmail(prestadorDto.getEmail());
-        prestador.setSenha(prestadorDto.getSenha());
+//        prestador.setEmail(prestadorDto.getEmail());
+//        prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
 
         // Busque a categoria com base no segmentoId
@@ -83,24 +83,24 @@ public class PrestadorService implements PrestadorInterface {
     }
 
 
-    public PrestadorServico buscarPrestadorPorEmail(String email) {
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
-        if(prestadorOp.isEmpty()){
-            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-        }
-        return prestadorOp.get();
-    }
+//    public PrestadorServico buscarPrestadorPorEmail(String email) {
+//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
+//        if(prestadorOp.isEmpty()){
+//            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
+//        }
+//        return prestadorOp.get();
+//    }
 
 
 
-    @Transactional
-    public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
-        if(prestadorOp.isEmpty()){
-             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-        }
-        return prestadorOp.get();
-    }
+//    @Transactional
+//    public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
+//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
+//        if(prestadorOp.isEmpty()){
+//             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
+//        }
+//        return prestadorOp.get();
+//    }
 
     @Transactional
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto){
@@ -111,8 +111,8 @@ public class PrestadorService implements PrestadorInterface {
         }
         PrestadorServico prestador = prestadorOp.get();
         prestador.setCnpj(prestadorDto.getCnpj());
-        prestador.setEmail(prestadorDto.getEmail());
-        prestador.setSenha(prestadorDto.getSenha());
+//        prestador.setEmail(prestadorDto.getEmail());
+//        prestador.setSenha(prestadorDto.getSenha());
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
 
         Segmento segmento = new Segmento();

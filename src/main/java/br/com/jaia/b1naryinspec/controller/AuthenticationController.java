@@ -1,13 +1,12 @@
 package br.com.jaia.b1naryinspec.controller;
 
 
-import br.com.jaia.b1naryinspec.dto.AuthenticationDTO;
-import br.com.jaia.b1naryinspec.dto.RegisterDTO;
-import jakarta.validation.Valid;
+import br.com.jaia.b1naryinspec.security.AuthenticationRequest;
+import br.com.jaia.b1naryinspec.security.AuthenticationResponse;
+import br.com.jaia.b1naryinspec.security.AuthenticationService;
+import br.com.jaia.b1naryinspec.security.RegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,29 +17,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AuthenticationController {
 
 
+
+
     @Autowired
-    private AuthenticationManager authenticationManager;
+    private  AuthenticationService authenticationService;
 
 
 
 
 
-    @PostMapping("/login")
-    public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data){
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password())
-        var auth = this.authenticationManager.authenticate(usernamePassword);
-        return ResponseEntity.ok().build();
-    }
 
 
 
 
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody RegisterDTO data){
-            //to do
+    public ResponseEntity<AuthenticationResponse> register(
+            @RequestBody RegisterRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.register(request));
+    }
 
-
-
+    @PostMapping("/login")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @RequestBody AuthenticationRequest request
+    ) {
+        return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 
 

@@ -21,8 +21,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table( name = "prestador" )
-@PrimaryKeyJoinColumn(name="usuarioId")
-public class PrestadorServico extends Usuario {
+public class PrestadorServico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +34,6 @@ public class PrestadorServico extends Usuario {
     @Column(name = "PRESTADOR_NOME")
     private String prestadorNome;
 
-    @OneToOne
-    @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
 
     @ManyToMany(mappedBy = "prestador")
     @JsonBackReference

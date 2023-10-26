@@ -14,9 +14,9 @@ public interface PrestadorInterface {
 
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj);
 
-    public PrestadorServico buscarPrestadorPorEmail( String  email);
+//    public PrestadorServico buscarPrestadorPorEmail( String  email);
 
-    public PrestadorServico buscarPrestadorPorNome(String prestadorNome);
+//    public PrestadorServico buscarPrestadorPorNome(String prestadorNome);
 
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto);
 

@@ -59,27 +59,27 @@ public class PrestadorController{
         return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadoPorCnpj(cnpj));
     }
 
-    @GetMapping(value = "/email/{email}")
-    public ResponseEntity<Object> buscarPorEmail(@PathVariable("email") String email){
+//    @GetMapping(value = "/email/{email}")
+//    public ResponseEntity<Object> buscarPorEmail(@PathVariable("email") String email){
+//
+//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
+//        if(!prestadorOp.isPresent()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorEmail(email));
+//    }
 
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
-        if(!prestadorOp.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorEmail(email));
-    }
-
-    @GetMapping(value = "/nome/{prestadorNome}")
-    public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){
-
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
-        if(!prestadorOp.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestadorNome));
-    }
+//    @GetMapping(value = "/nome/{prestadorNome}")
+//    public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){
+//
+//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
+//        if(!prestadorOp.isPresent()){
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+//        }
+//
+//        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestadorNome));
+//    }
 
     @PostMapping
     public ResponseEntity<PrestadorServico> novoPrestador(@RequestBody PrestadorDto prestadorServ){
