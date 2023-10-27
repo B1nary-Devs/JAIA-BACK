@@ -1,47 +1,31 @@
 package br.com.jaia.b1naryinspec.controller;
 
 
-import br.com.jaia.b1naryinspec.security.AuthenticationRequest;
-import br.com.jaia.b1naryinspec.security.AuthenticationResponse;
+import br.com.jaia.b1naryinspec.model.Usuario;
 import br.com.jaia.b1naryinspec.security.AuthenticationService;
-import br.com.jaia.b1naryinspec.security.RegisterRequest;
+import br.com.jaia.b1naryinspec.security.LoginResponseDTO;
+import br.com.jaia.b1naryinspec.security.RegistrationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
-@RequestMapping("auth")
+@RestController
+@RequestMapping("/auth")
+@CrossOrigin("*")
 public class AuthenticationController {
 
-
-
-
     @Autowired
-    private  AuthenticationService authenticationService;
-
-
-
-
-
-
+    private AuthenticationService authenticationService;
 
 
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(
-            @RequestBody RegisterRequest request
-    ) {
-        return ResponseEntity.ok(authenticationService.register(request));
+    public Usuario registerUser(@RequestBody RegistrationDTO body){
+        return authenticationService.registerUser(body.getEmail(), body.getSenha());
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AuthenticationResponse> authenticate(
-            @RequestBody AuthenticationRequest request
-    ) {
-        return ResponseEntity.ok(authenticationService.authenticate(request));
+    public LoginResponseDTO loginUser(@RequestBody RegistrationDTO body){
+        return authenticationService.loginUser(body.getEmail(), body.getSenha());
     }
 
 

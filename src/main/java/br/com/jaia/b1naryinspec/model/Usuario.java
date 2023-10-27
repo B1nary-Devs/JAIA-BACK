@@ -112,56 +112,6 @@ public class Usuario implements UserDetails {
 
 
 
-    // Padrão Builder
-    public static class UsuarioBuilder {
-        private Long usuarioId;
-        private String email;
-        private String senha;
-        private UserRole role;
-
-        public static UsuarioBuilder builder() {
-            return new UsuarioBuilder();
-        }
-
-        public UsuarioBuilder withUsuarioId(Long usuarioId) {
-            this.usuarioId = usuarioId;
-            return this;
-        }
-
-        public UsuarioBuilder withEmail(String email) {
-            this.email = email;
-            return this;
-        }
-
-        public UsuarioBuilder withSenha(String senha) {
-            this.senha = senha;
-            return this;
-        }
-
-        public UsuarioBuilder withRole(UserRole role) {
-            this.role = role;
-            return this;
-        }
-
-        public Usuario build() {
-            Usuario usuario = new Usuario();
-            usuario.usuarioId = this.usuarioId;
-            usuario.email = this.email;
-            usuario.senha = this.senha;
-            usuario.role = this.role;
-            return usuario;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
 
 
 }
