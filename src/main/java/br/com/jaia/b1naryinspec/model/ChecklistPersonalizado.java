@@ -4,9 +4,6 @@ package br.com.jaia.b1naryinspec.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Entity
 @Table(name = "checklist_personalizado")
 public class ChecklistPersonalizado {
@@ -20,8 +17,11 @@ public class ChecklistPersonalizado {
     @Column(name = "checklist_personalizado_nome", nullable = false)
     private String checklistPersonalizadoNome;
 
-    @Column(name = "checklist_personalizado_descricao")
-    private String descricao;
+    @Column(name = "checklist_personalizado_observacao")
+    private String observacao;
+
+    @Column(name = "checklist_personalizado_situacao")
+    private String situacao;
 
 
     @ManyToOne
@@ -29,11 +29,17 @@ public class ChecklistPersonalizado {
     @JsonIgnore
     private OrdemServico ordemServico;
 
-    public ChecklistPersonalizado(Long checklistPersonalizadoId, String checklistPersonalizadoNome, String descricao, OrdemServico ordemServico) {
+    @ManyToOne
+    @JoinColumn(name = "segmento_id")
+    private Segmento segmento;
+
+    public ChecklistPersonalizado(Long checklistPersonalizadoId, String checklistPersonalizadoNome, String observacao, String situacao, OrdemServico ordemServico, Segmento segmento) {
         this.checklistPersonalizadoId = checklistPersonalizadoId;
         this.checklistPersonalizadoNome = checklistPersonalizadoNome;
-        this.descricao = descricao;
+        this.observacao = observacao;
+        this.situacao = situacao;
         this.ordemServico = ordemServico;
+        this.segmento = segmento;
     }
 
     public ChecklistPersonalizado() {
@@ -63,11 +69,27 @@ public class ChecklistPersonalizado {
         this.ordemServico = ordemServico;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getObservacao() {
+        return observacao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setObservacao(String descricao) {
+        this.observacao = descricao;
+    }
+
+    public Segmento getSegmento() {
+        return segmento;
+    }
+
+    public void setSegmento(Segmento segmento) {
+        this.segmento = segmento;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 }
