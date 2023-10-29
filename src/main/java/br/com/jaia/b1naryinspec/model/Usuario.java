@@ -27,17 +27,20 @@ public class Usuario implements UserDetails {
     private UserRole role;
 
 
-    public Usuario(Long usuarioId, String email, String senha, UserRole role) {
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private PrestadorServico prestadorServico;
+
+    public Usuario(Long usuarioId, String email, String senha, UserRole role, PrestadorServico prestadorServico) {
         this.usuarioId = usuarioId;
         this.email = email;
         this.senha = senha;
         this.role = role;
+        this.prestadorServico = prestadorServico;
     }
-
 
     public Usuario() {
     }
-
 
     public Long getUsuarioId() {
         return usuarioId;
@@ -105,6 +108,14 @@ public class Usuario implements UserDetails {
         return true;
     }
 
+    public PrestadorServico getPrestadorServico() {
+        return prestadorServico;
+    }
+
+    public void setPrestadorServico(PrestadorServico prestadorServico) {
+        this.prestadorServico = prestadorServico;
+    }
+}
     @Override
     public boolean isEnabled() {
         return true;

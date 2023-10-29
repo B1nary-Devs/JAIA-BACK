@@ -1,11 +1,23 @@
 package br.com.jaia.b1naryinspec.dto;
 
+import br.com.jaia.b1naryinspec.model.PrestadorServico;
+
 public class UsuarioDTO {
 
     private Long usuarioId;
     private String email;
     private String senha;
     private String acesso;
+
+    public UsuarioDTO() {
+    }
+
+    public UsuarioDTO(Long usuarioId, String email, String senha, String acesso) {
+        this.usuarioId = usuarioId;
+        this.email = email;
+        this.senha = senha;
+        this.acesso = acesso;
+    }
 
     public Long getUsuarioId() {
         return usuarioId;
@@ -38,4 +50,5 @@ public class UsuarioDTO {
     public void setAcesso(String acesso) {
         this.acesso = acesso;
     }
+
 }

@@ -6,6 +6,15 @@ public class ClienteDTO {
     private String clienteCnpj;
     private String clienteNome;
 
+    public ClienteDTO(Long clienteId, String clienteCnpj, String clienteNome) {
+        this.clienteId = clienteId;
+        this.clienteCnpj = clienteCnpj;
+        this.clienteNome = clienteNome;
+    }
+
+    public ClienteDTO() {
+    }
+
     public Long getClienteId() {
         return clienteId;
     }

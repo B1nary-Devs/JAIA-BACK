@@ -13,10 +13,8 @@ public interface PrestadorInterface {
     public List<PrestadorServico> buscarTodosPrestadores();
 
     public PrestadorServico buscarPrestadoPorCnpj(String cnpj);
-
-//    public PrestadorServico buscarPrestadorPorEmail( String  email);
-
-//    public PrestadorServico buscarPrestadorPorNome(String prestadorNome);
+    
+    public PrestadorServico findByUsuarioUsuarioId(Long usuarioId);
 
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto);
 
