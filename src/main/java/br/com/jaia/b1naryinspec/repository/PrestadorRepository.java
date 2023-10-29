@@ -15,7 +15,6 @@ public interface PrestadorRepository extends JpaRepository <PrestadorServico, Lo
 
     public Optional<PrestadorServico> findByCnpj(String cnpj); 
 
-    public Optional<PrestadorServico> findByPrestadorNome(String prestadorNome);
 
     public PrestadorServico findByPrestadorId(Long prestadorId);
 

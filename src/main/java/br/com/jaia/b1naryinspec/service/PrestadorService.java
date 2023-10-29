@@ -88,25 +88,6 @@ public class PrestadorService implements PrestadorInterface {
     }
 
 
-//    public PrestadorServico buscarPrestadorPorEmail(String email) {
-//        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
-//        if(prestadorOp.isEmpty()){
-//            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-//        }
-//        return prestadorOp.get();
-//    }
-
-
-
-    @Transactional
-    public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
-        if(prestadorOp.isEmpty()){
-             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-        }
-        return prestadorOp.get();
-    }
-
     @Transactional
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto){
 
