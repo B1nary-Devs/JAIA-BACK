@@ -24,7 +24,7 @@ public class UserService implements UserDetailsService {
 
         System.out.println("In the user details service");
 
-        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("user is not valid"));
+        return userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("usuario nao localizado"));
     }
 
 
