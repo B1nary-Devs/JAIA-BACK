@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,6 +38,13 @@ public class Usuario implements UserDetails {
         this.senha = senha;
         this.role = role;
         this.prestadorServico = prestadorServico;
+    }
+
+    public Usuario(Long usuarioId, String email, String senha, UserRole role) {
+        this.usuarioId = usuarioId;
+        this.email = email;
+        this.senha = senha;
+        this.role = role;
     }
 
     public Usuario() {
@@ -115,13 +123,11 @@ public class Usuario implements UserDetails {
     public void setPrestadorServico(PrestadorServico prestadorServico) {
         this.prestadorServico = prestadorServico;
     }
-}
+
     @Override
     public boolean isEnabled() {
         return true;
     }
-
-
 
 
 
