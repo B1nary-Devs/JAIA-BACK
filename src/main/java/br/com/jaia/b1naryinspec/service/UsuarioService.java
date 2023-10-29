@@ -3,8 +3,15 @@ package br.com.jaia.b1naryinspec.service;
 
 
 
+import br.com.jaia.b1naryinspec.dto.UsuarioDTO;
+import br.com.jaia.b1naryinspec.model.Usuario;
+import br.com.jaia.b1naryinspec.repository.UsuarioRepository;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -22,7 +29,6 @@ public class UsuarioService {
         Usuario usuario = new Usuario();
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setSenha(usuarioDTO.getSenha());
-        usuario.setAcesso(usuarioDTO.getAcesso());
 
         return usuarioRepo.save(usuario);
     }
@@ -51,7 +57,7 @@ public class UsuarioService {
         Usuario usuario = usuarioOp.get();
         usuario.setEmail(usuarioDTO.getEmail());
         usuario.setSenha(usuarioDTO.getSenha());
-        usuario.setAcesso(usuarioDTO.getAcesso());
+
 
 
         return usuarioRepo.save(usuario);
