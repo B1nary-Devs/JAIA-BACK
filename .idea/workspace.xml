@@ -5,35 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/PrestadorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/PrestadorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ChecklistPersonalizadoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ChecklistPersonalizadoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ClienteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/ClienteDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/PrestadorDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/PrestadorDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/UsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/UsuarioDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/ChecklistPersonalizado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/ChecklistPersonalizado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/OrdemServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/OrdemServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/PrestadorServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/PrestadorServico.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/PrestadorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/PrestadorRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistPersonalizadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistPersonalizadoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/PrestadorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/PrestadorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/PrestadorController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ChecklistDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ChecklistDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ClienteDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/ClienteDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/PrestadorDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/PrestadorDto.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/SegmentoDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/dto/SegmentoDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/OrdemServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/OrdemServico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/PrestadorServico.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/PrestadorServico.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/PrestadorRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/PrestadorRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ChecklistService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/ChecklistService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/OrdemServicoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/OrdemServicoService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/PrestadorService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SegmentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SegmentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JAIA-FRONT" beforeDir="false" afterPath="$PROJECT_DIR$/../JAIA-FRONT" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +49,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2WMfA1Q8wX28DceC9KLdKtGh1Fz" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">

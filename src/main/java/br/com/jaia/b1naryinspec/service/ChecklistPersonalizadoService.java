@@ -1,20 +1,14 @@
 package br.com.jaia.b1naryinspec.service;
 
-import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
 import br.com.jaia.b1naryinspec.dto.ChecklistPersonalizadoDTO;
-import br.com.jaia.b1naryinspec.dto.SegmentoDTO;
-import br.com.jaia.b1naryinspec.model.Checklist;
 import br.com.jaia.b1naryinspec.model.ChecklistPersonalizado;
 import br.com.jaia.b1naryinspec.model.OrdemServico;
+import br.com.jaia.b1naryinspec.model.Segmento;
 import br.com.jaia.b1naryinspec.repository.ChecklistPersonalizadoRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class ChecklistPersonalizadoService {
@@ -36,7 +30,14 @@ public class ChecklistPersonalizadoService {
         ChecklistPersonalizado checklistPersonalizado =  new ChecklistPersonalizado();
         checklistPersonalizado.setChecklistPersonalizadoId(dto.getChecklistPersonalizadoId());
         checklistPersonalizado.setChecklistPersonalizadoNome(dto.getChecklistPersonalizadoNome());
-        checklistPersonalizado.setDescricao(dto.getDescricao());
+        checklistPersonalizado.setObservacao(dto.getObservacao());
+        checklistPersonalizado.setSituacao(dto.getSituacao());
+
+        Segmento segmento = new Segmento();
+
+        segmento.setId(dto.getSegmentoId());
+
+        checklistPersonalizado.setSegmento(segmento);
 
         OrdemServico ordem = new OrdemServico();
 
@@ -44,7 +45,7 @@ public class ChecklistPersonalizadoService {
 
         checklistPersonalizado.setOrdemServico(ordem);
 
-       return checklistPersonalizadoRepository.save(checklistPersonalizado);
+        return checklistPersonalizadoRepository.save(checklistPersonalizado);
 
     }
 

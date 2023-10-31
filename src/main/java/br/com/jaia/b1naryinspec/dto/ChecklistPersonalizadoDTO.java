@@ -11,16 +11,19 @@ public class ChecklistPersonalizadoDTO {
 
     private String checklistPersonalizadoNome;
 
-    private String descricao;
+    private String observacao;
 
+    private String situacao;
 
-
+    private Long segmentoId;
     private Long ordemServicoId;
 
-    public ChecklistPersonalizadoDTO(Long checklistPersonalizadoId, String checklistPersonalizadoNome, String descricao, Long ordemServicoId) {
+    public ChecklistPersonalizadoDTO(Long checklistPersonalizadoId, String checklistPersonalizadoNome, String observacao, String situacao, Long segmentoId, Long ordemServicoId) {
         this.checklistPersonalizadoId = checklistPersonalizadoId;
         this.checklistPersonalizadoNome = checklistPersonalizadoNome;
-        this.descricao = descricao;
+        this.observacao = observacao;
+        this.situacao = situacao;
+        this.segmentoId = segmentoId;
         this.ordemServicoId = ordemServicoId;
     }
 
@@ -51,11 +54,27 @@ public class ChecklistPersonalizadoDTO {
         this.ordemServicoId = ordemServicoId;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getObservacao() {
+        return observacao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    public Long getSegmentoId() {
+        return segmentoId;
+    }
+
+    public void setSegmentoId(Long segmentoId) {
+        this.segmentoId = segmentoId;
     }
 }
