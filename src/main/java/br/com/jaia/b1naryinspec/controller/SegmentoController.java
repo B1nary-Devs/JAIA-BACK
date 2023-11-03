@@ -16,16 +16,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/segmento")
 public class SegmentoController {
 
-
     @Autowired
     private SegmentoService segmentoService;
-
-
 
     @GetMapping
     public ResponseEntity<List<SegmentoDTO>> findAll(){
@@ -34,7 +31,6 @@ public class SegmentoController {
         return ResponseEntity.ok().body(listDto);
 
     }
-
 
     @PostMapping
     public ResponseEntity<SegmentoDTO> insert(@RequestBody SegmentoDTO dto){
