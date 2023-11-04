@@ -55,6 +55,9 @@ public class ChecklistPersonalizadoService {
     }
 
 
+    public  ChecklistPersonalizado findByChecklistPersonalizadoId(Long id){
+        return checklistPersonalizadoRepository.findByChecklistPersonalizadoId(id);
+    }
 
 
 }
