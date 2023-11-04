@@ -120,8 +120,8 @@ public class SecurityConfiguration {
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("*"));
-        configuration.setAllowedMethods(List.of("GET","POST", "DELETE", "PUT"));
-        configuration.setAllowedHeaders(List.of("Authorization"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT"));
+        configuration.setAllowedHeaders(List.of("*")); // <-- Isso permitirá todos os cabeçalhos
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
