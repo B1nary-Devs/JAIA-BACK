@@ -37,8 +37,6 @@ public class OrdemServico {
     @Column(name = "descricao")
     private String descricao;
 
-
-
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;

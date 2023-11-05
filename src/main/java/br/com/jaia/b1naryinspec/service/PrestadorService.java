@@ -6,7 +6,9 @@ import java.util.Optional;
 import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
 import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
 import br.com.jaia.b1naryinspec.model.Segmento;
+import br.com.jaia.b1naryinspec.model.Usuario;
 import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
+import br.com.jaia.b1naryinspec.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,21 +26,25 @@ public class PrestadorService implements PrestadorInterface {
     @Autowired
     private SegmentoRepository segmentoRepository;
 
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
     @Transactional
     public PrestadorServico novoPrestador(PrestadorDto prestadorDto) {
-        if (prestadorDto == null ||
-                prestadorDto.getEmail() == null ||
-                prestadorDto.getEmail().isBlank() ||
-                prestadorDto.getSenha() == null ||
-                prestadorDto.getSenha().isBlank() ||
-                prestadorDto.getSegmentoId() == null) {
+        if (prestadorDto == null) {
             throw new DataIntegrityViolationExceptionCustom("Dados Inválidos");
         }
 
         PrestadorServico prestador = new PrestadorServico();
         prestador.setCnpj(prestadorDto.getCnpj());
-        prestador.setEmail(prestadorDto.getEmail());
-        prestador.setSenha(prestadorDto.getSenha());
+
+
+
+
+        Usuario user = usuarioRepository.findById(prestadorDto.getUsuarioId())
+                .orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
+
+        prestador.setUsuario(user);
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
 
         // Busque a categoria com base no segmentoId
@@ -53,7 +59,6 @@ public class PrestadorService implements PrestadorInterface {
 
     @Transactional
     public List<PrestadorServico> buscarTodosPrestadores() {
-
 
         return prestadorRepo.findAll();
     }
@@ -83,25 +88,6 @@ public class PrestadorService implements PrestadorInterface {
     }
 
 
-    public PrestadorServico buscarPrestadorPorEmail(String email) {
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByEmail(email);
-        if(prestadorOp.isEmpty()){
-            throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-        }
-        return prestadorOp.get();
-    }
-
-
-
-    @Transactional
-    public PrestadorServico buscarPrestadorPorNome(String prestadorNome){
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
-        if(prestadorOp.isEmpty()){
-             throw new ObjectNotFoundException("Prestador de serviço não encontrado!");
-        }
-        return prestadorOp.get();
-    }
-
     @Transactional
     public PrestadorServico updatePrestador(Long prestadorId, PrestadorDto prestadorDto){
 
@@ -111,14 +97,18 @@ public class PrestadorService implements PrestadorInterface {
         }
         PrestadorServico prestador = prestadorOp.get();
         prestador.setCnpj(prestadorDto.getCnpj());
-        prestador.setEmail(prestadorDto.getEmail());
-        prestador.setSenha(prestadorDto.getSenha());
+
+
+        Usuario user = usuarioRepository.findById(prestadorDto.getUsuarioId())
+                .orElseThrow(() -> new ObjectNotFoundException("Usuario não encontrado"));
+
+        prestador.setUsuario(user);
         prestador.setPrestadorNome(prestadorDto.getPrestadorNome());
 
-        Segmento segmento = new Segmento();
-        segmento.setId(prestadorDto.getSegmentoId());
+        // Busque a categoria com base no segmentoId
+        Segmento segmento = segmentoRepository.findById(prestadorDto.getSegmentoId())
+                .orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado"));
         prestador.setSegmento(segmento);
-
         return prestadorRepo.save(prestador);
     }
 
@@ -132,7 +122,11 @@ public class PrestadorService implements PrestadorInterface {
     }
 
 
+    @Override
+    public PrestadorServico findByUsuarioUsuarioId(Long usuarioId){
+        return prestadorRepo.findByUsuarioUsuarioId(usuarioId);
 
+    }
 
 
 

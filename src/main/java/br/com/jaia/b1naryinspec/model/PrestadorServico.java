@@ -2,17 +2,26 @@ package br.com.jaia.b1naryinspec.model;
 
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
+import jakarta.persistence.Table;
+
 @Entity
 @Table( name = "prestador" )
-public class PrestadorServico{
+public class PrestadorServico {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +31,8 @@ public class PrestadorServico{
     @Column(name = "CNPJ")
     private String cnpj;
 
-    @Column(name = "EMAIL", unique = true)
-    private String email;
-
-    @Column(name = "SENHA")
-    private String senha;
-
     @Column(name = "PRESTADOR_NOME")
     private String prestadorNome;
-
 
     @ManyToMany(mappedBy = "prestador")
     @JsonBackReference
@@ -41,17 +43,19 @@ public class PrestadorServico{
     @JoinColumn(name = "segmento_id")
     private Segmento segmento;
 
+    @OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
-    public PrestadorServico(Long prestadorId, String cnpj, String email, String senha, String prestadorNome, Set<OrdemServico> ordemServicos, Segmento segmento) {
+
+    public PrestadorServico(Long prestadorId, String cnpj, String prestadorNome, Set<OrdemServico> ordemServicos, Segmento segmento, Usuario usuario) {
         this.prestadorId = prestadorId;
         this.cnpj = cnpj;
-        this.email = email;
-        this.senha = senha;
         this.prestadorNome = prestadorNome;
         this.ordemServicos = ordemServicos;
         this.segmento = segmento;
+        this.usuario = usuario;
     }
-
 
     public PrestadorServico() {
     }
@@ -71,22 +75,6 @@ public class PrestadorServico{
 
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getPrestadorNome() {
@@ -113,6 +101,11 @@ public class PrestadorServico{
         this.segmento = segmento;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 }
