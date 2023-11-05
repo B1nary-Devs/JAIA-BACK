@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="28967f8c-4f20-49ed-8857-c74f87e5a05a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller/ChecklistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ChecklistPersonalizadoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/repository/ChecklistPersonalizadoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistPersonalizadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/ChecklistPersonalizadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/config/SecurityConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/config/SecurityConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/PrestadorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/PrestadorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/controller/SegmentoController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,12 +20,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
+        <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/controller" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,7 +45,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2WMfA1Q8wX28DceC9KLdKtGh1Fz" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -55,17 +61,22 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;2Sprint&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/marce/OneDrive/Documentos/GitHub/JAIA-BACK/pom.xml&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Marcelo/Documents/GitHub/JAIA-SOFTWARE/JAIA-BACK/pom.xml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d7b1a4cb31979d517b4f67d02f9f2d91&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="br.com.jaia.b1naryinspec.security" />
+      <recent name="br.com.jaia.b1naryinspec.config" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="br.com.jaia.b1naryinspec.dto" />
     </key>
@@ -112,6 +123,15 @@
       <workItem from="1697398116517" duration="148000" />
       <workItem from="1697398518995" duration="9000" />
       <workItem from="1697398620193" duration="324000" />
+      <workItem from="1697493808734" duration="6996000" />
+      <workItem from="1697581093860" duration="1474000" />
+      <workItem from="1697666501337" duration="1703000" />
+      <workItem from="1698204513030" duration="551000" />
+      <workItem from="1698346001625" duration="3755000" />
+      <workItem from="1698590625419" duration="532000" />
+      <workItem from="1698591195605" duration="107000" />
+      <workItem from="1699097592555" duration="1133000" />
+      <workItem from="1699122152219" duration="3370000" />
     </task>
     <servers />
   </component>

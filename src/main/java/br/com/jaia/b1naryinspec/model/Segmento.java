@@ -20,13 +20,15 @@ public class Segmento {
     private Long id;
 
     @Column(name =  "segmento_nome", unique = true )
-
     private String nome;
 
 
     @ManyToMany(mappedBy = "segmentos")
     private Set<Checklist> checklistList = new HashSet<>();
 
+    @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<ChecklistPersonalizado> checklistPersonalizadosList = new HashSet<>();
 
     @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JsonIgnore
@@ -58,16 +60,13 @@ public class Segmento {
         this.nome = nome;
     }
 
-
-
-    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<PrestadorServico> prestadorServicos) {
+    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<ChecklistPersonalizado> checklistPersonalizadosList, Set<PrestadorServico> prestadorServicos) {
         this.id = id;
         this.nome = nome;
         this.checklistList = checklistList;
+        this.checklistPersonalizadosList = checklistPersonalizadosList;
         this.prestadorServicos = prestadorServicos;
     }
-
-
 
     public Set<Checklist> getChecklistList() {
         return checklistList;

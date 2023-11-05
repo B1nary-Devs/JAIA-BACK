@@ -53,8 +53,6 @@ public class OrdemServicoController {
     }
 
 
-
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<Object> buscarPorId(@PathVariable Long id){
 
@@ -66,7 +64,29 @@ public class OrdemServicoController {
 
     }
 
+    @GetMapping(value = "/prestador/{id}")
+    public ResponseEntity<List<OrdemServico>> buscarPorIdPrestador(@PathVariable Long id) {
+        List<OrdemServico> OrdemServicolist = ordemServicoService.buscarPorIdPrestador(id);
 
+        if (OrdemServicolist.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(OrdemServicolist);
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(OrdemServicolist);
+    }
+
+
+
+    @GetMapping(value = "/cliente/{id}")
+    public ResponseEntity<List<OrdemServico>> buscarPorIdCliente(@PathVariable Long id) {
+        List<OrdemServico> OrdemServicolist = ordemServicoService.buscarPorCliente(id);
+
+        if (OrdemServicolist.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(OrdemServicolist);
+        }
+
+        return ResponseEntity.status(HttpStatus.OK).body(OrdemServicolist);
+    }
 
 
 

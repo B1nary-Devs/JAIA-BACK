@@ -82,7 +82,6 @@ public class OrdemServicoService {
     }
 
 
-
     @Transactional
         public List<OrdemServico> listartodos() {
             return ordemServicoRepository.findAll();
@@ -94,6 +93,15 @@ public class OrdemServicoService {
     }
 
 
+    public List<OrdemServico> buscarPorIdPrestador(Long id){
+        return ordemServicoRepository.findByPrestadorPrestadorId(id);
+
+    }
+
+
+    public List<OrdemServico> buscarPorCliente(Long id){
+        return ordemServicoRepository.findByClienteClienteId(id);
+    }
 
 
 
