@@ -66,16 +66,16 @@ public class PrestadorController{
     }
 
 
-    @GetMapping(value = "/nome/{prestadorNome}")
-    public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){
+    // @GetMapping(value = "/nome/{prestadorNome}")
+    // public ResponseEntity<Object> buscarPrestadorPorNome(@PathVariable("prestadorNome") String prestadorNome){
 
-        Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
-        if(!prestadorOp.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
-        }
+    //     Optional<PrestadorServico> prestadorOp = prestadorRepo.findByPrestadorNome(prestadorNome);
+    //     if(!prestadorOp.isPresent()){
+    //         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Prestador não encontrado");
+    //     }
 
-        return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestadorNome));
-    }
+    //     return ResponseEntity.status(HttpStatus.OK).body(prestador.buscarPrestadorPorNome(prestadorNome));
+    // }
 
     @PostMapping
     public ResponseEntity<PrestadorServico> novoPrestador(@RequestBody PrestadorDto prestadorServ){
