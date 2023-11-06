@@ -17,7 +17,7 @@ public class EmailService {
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("noreplybnaryinspec@gmail.com");
         message.setTo(toEmail);
-        String body = "Olá, seja bem-vindo(a)!\nSuas credenciais de acesso são:\nEmail: " + email + "\nSenha: " + senha;
+        String body = "Olá, seja bem-vindo(a)!\nSuas credenciais de acesso à nossa plataforma são:\nEmail: " + email + "\nSenha: " + senha;
         message.setText(body);
         String subject = "Credenciais de acesso";
         message.setSubject(subject);

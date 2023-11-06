@@ -25,6 +25,7 @@ br\com\jaia\b1naryinspec\dem\DemoController.class
 br\com\jaia\b1naryinspec\service\SegmentoService.class
 br\com\jaia\b1naryinspec\controller\ChecklistPersonalizadoController.class
 br\com\jaia\b1naryinspec\B1naryinspecApplication.class
+br\com\jaia\b1naryinspec\controller\EmailController.class
 br\com\jaia\b1naryinspec\exceptions\CustomExceptionHandler.class
 br\com\jaia\b1naryinspec\repository\ChecklistPersonalizadoRepository.class
 br\com\jaia\b1naryinspec\service\PrestadorService.class
