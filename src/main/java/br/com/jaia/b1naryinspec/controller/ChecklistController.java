@@ -4,6 +4,7 @@ package br.com.jaia.b1naryinspec.controller;
 import br.com.jaia.b1naryinspec.dto.ChecklistDTO;
 import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
 import br.com.jaia.b1naryinspec.model.Checklist;
+import br.com.jaia.b1naryinspec.model.ChecklistPersonalizado;
 import br.com.jaia.b1naryinspec.model.OrdemServico;
 import br.com.jaia.b1naryinspec.service.ChecklistService;
 import jakarta.validation.Valid;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/checklist")
@@ -43,6 +45,16 @@ public class ChecklistController {
         return ResponseEntity.created(uri).body(dto);
 
     }
+
+    @GetMapping(value = "/id/{id}")
+    public ResponseEntity<Object> bucarIdChecklist(@PathVariable("id") Long id){
+        Optional<Checklist> checklistop = Optional.ofNullable(checklistService.findById(id));
+        if(!checklistop.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Checklist não encontrado!");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(checklistop);
+    }
+
 
 
     @PutMapping(value = "/{id}")
