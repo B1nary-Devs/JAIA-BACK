@@ -4,7 +4,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,11 +21,10 @@ public class EmailController {
 
     @PostMapping("/credenciais")
     public ResponseEntity<String> enviarEmail(@RequestBody Map<String, String> requestBody){
-        String toEmail = requestBody.get("toEmail");
         String email = requestBody.get("email");
         String senha = requestBody.get("senha");
         
-        emailService.sendEmail(toEmail, email, senha);
+        emailService.sendEmail(email, senha);
 
         return ResponseEntity.ok("E-mail enviado");
     }
