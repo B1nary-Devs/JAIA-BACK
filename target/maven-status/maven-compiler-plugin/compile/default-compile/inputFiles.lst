@@ -28,6 +28,7 @@ C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\Cliente.jav
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\PrestadorGetDTO.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\ChecklistDTO.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\ChecklistPersonalizado.java
+C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\Solicitacao.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\repository\ClienteRepository.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\UsuarioController.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\ChecklistPersonalizadoDTO.java
