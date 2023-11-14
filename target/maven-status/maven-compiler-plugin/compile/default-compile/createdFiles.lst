@@ -37,6 +37,8 @@ br\com\jaia\b1naryinspec\service\EmailService.class
 br\com\jaia\b1naryinspec\repository\ClienteRepository.class
 br\com\jaia\b1naryinspec\security\RegistrationDTO.class
 br\com\jaia\b1naryinspec\service\PrestadorInterface.class
+br\com\jaia\b1naryinspec\model\Solicitacao.class
+br\com\jaia\b1naryinspec\service\SolicitacaoService.class
 br\com\jaia\b1naryinspec\service\UsuarioService.class
 br\com\jaia\b1naryinspec\dto\ChecklistDTO.class
 br\com\jaia\b1naryinspec\exceptions\DataIntegrityViolationExceptionCustom.class
@@ -51,6 +53,9 @@ br\com\jaia\b1naryinspec\dto\SegmentoDTO.class
 br\com\jaia\b1naryinspec\security\TokenService.class
 br\com\jaia\b1naryinspec\dto\ChecklistGetDTO.class
 br\com\jaia\b1naryinspec\exceptions\EntityNotFoundException.class
+br\com\jaia\b1naryinspec\dto\SolicitacaoDTO.class
+br\com\jaia\b1naryinspec\repository\SolicitacaoRepository.class
 br\com\jaia\b1naryinspec\service\ChecklistPersonalizadoService.class
 br\com\jaia\b1naryinspec\model\ChecklistPersonalizado.class
+br\com\jaia\b1naryinspec\controller\SolicitacaoController.class
 br\com\jaia\b1naryinspec\service\ChecklistService.class

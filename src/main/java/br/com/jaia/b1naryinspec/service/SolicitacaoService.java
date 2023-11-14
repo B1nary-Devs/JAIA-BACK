@@ -62,4 +62,13 @@ public class SolicitacaoService {
     return solicitacaoRepo.save(solicitacao);
 
     }
+
+    public Optional<Solicitacao> deleteSolicitacao(Long solicitacaoId){
+        Optional<Solicitacao> solicitacaoOp = solicitacaoRepo.findById(solicitacaoId);
+        if(solicitacaoOp.isPresent()){
+            solicitacaoRepo.deleteById(solicitacaoId);
+        }
+        return solicitacaoOp;
+    }
+
 }

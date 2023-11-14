@@ -12,7 +12,7 @@ import jakarta.persistence.Table;
 public class Solicitacao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false, name = "segmento_id")
+    @Column(nullable = false, name = "solicitacao_id")
     private Long solicitacaoId;
 
     @Column(name = "descricao_solicitacao")
@@ -25,10 +25,9 @@ public class Solicitacao {
     private String nomeEmpresa;
 
     @Column(name = "cnpj_empresa")
-    private Long cnpj;
+    private String cnpj;
 
-    public Solicitacao(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, Long cnpj){
-        this.solicitacaoId = solicitacaoId;
+    public Solicitacao(String descricao, String resultado, String nomeEmpresa, String cnpj){
         this.descricao = descricao;
         this.resultado = resultado;
         this.nomeEmpresa = nomeEmpresa;
@@ -70,11 +69,11 @@ public class Solicitacao {
         this.nomeEmpresa = nomeEmpresa;
     }
 
-    public Long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

@@ -6,13 +6,13 @@ public class SolicitacaoDTO {
     private String descricao;
     private String resultado;
     private String nomeEmpresa;
-    private Long cnpj;
+    private String cnpj;
 
     public SolicitacaoDTO(){
 
     }
 
-    public SolicitacaoDTO(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, Long cnpj){
+    public SolicitacaoDTO(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, String cnpj){
 
         this.solicitacaoId = solicitacaoId;
         this.descricao = descricao;
@@ -54,11 +54,11 @@ public class SolicitacaoDTO {
         this.nomeEmpresa = nomeEmpresa;
     }
 
-    public Long getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Long cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

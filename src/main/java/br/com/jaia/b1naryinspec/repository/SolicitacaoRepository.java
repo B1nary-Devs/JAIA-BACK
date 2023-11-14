@@ -10,4 +10,8 @@ import br.com.jaia.b1naryinspec.model.Solicitacao;
 @Repository
 public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long> {
 
+    public Solicitacao findBySolicitacaoId(Long solicitacaoId);
+
+    
+
 }

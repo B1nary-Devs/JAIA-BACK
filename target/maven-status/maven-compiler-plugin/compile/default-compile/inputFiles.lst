@@ -10,7 +10,9 @@ C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\UsuarioDTO.ja
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\exceptions\ObjectNotFoundException.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\exceptions\DataIntegrityViolationExceptionCustom.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\ChecklistPersonalizadoController.java
+C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\service\SolicitacaoService.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\ClienteDTO.java
+C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\SolicitacaoDTO.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\repository\UsuarioRepository.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\dto\PrestadorDto.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\service\ChecklistPersonalizadoService.java
@@ -40,11 +42,13 @@ C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\OrdemS
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\config\SecurityConfiguration.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\service\PrestadorInterface.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\Usuario.java
+C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\repository\SolicitacaoRepository.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\B1naryinspecApplication.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\AuthenticationController.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\service\ClienteService.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\Segmento.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\UserRole.java
+C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\SolicitacaoController.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\ClienteController.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\model\OrdemServico.java
 C:\fatec\Jaia\JAIA-BACK\src\main\java\br\com\jaia\b1naryinspec\controller\EmailController.java
