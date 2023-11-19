@@ -1,11 +1,9 @@
 package br.com.jaia.b1naryinspec.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
+
+
 
 @Entity
 @Table(name = "solicitacao")
@@ -27,12 +25,28 @@ public class Solicitacao {
     @Column(name = "cnpj_empresa")
     private String cnpj;
 
-    public Solicitacao(String descricao, String resultado, String nomeEmpresa, String cnpj){
+
+    @ManyToOne
+    @JoinColumn(name = "segmento_id")
+    private Segmento segmento;
+
+
+    @ManyToOne
+    @JoinColumn(name = "ordem_de_servico_id")
+    private OrdemServico ordemServico;
+
+
+    public Solicitacao(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, String cnpj, Segmento segmento, OrdemServico ordemServico) {
+        this.solicitacaoId = solicitacaoId;
         this.descricao = descricao;
         this.resultado = resultado;
         this.nomeEmpresa = nomeEmpresa;
         this.cnpj = cnpj;
+        this.segmento = segmento;
+        this.ordemServico = ordemServico;
     }
+
+
 
     public Solicitacao(){
     }
@@ -77,5 +91,28 @@ public class Solicitacao {
         this.cnpj = cnpj;
     }
 
-    
+
+    public Segmento getSegmento() {
+        return segmento;
+    }
+
+    public void setSegmento(Segmento segmento) {
+        this.segmento = segmento;
+    }
+
+
+
+    public OrdemServico getOrdemServico() {
+        return ordemServico;
+    }
+
+    public void setOrdemServico(OrdemServico ordemServico) {
+        this.ordemServico = ordemServico;
+    }
+
+
+
+
+
+
 }

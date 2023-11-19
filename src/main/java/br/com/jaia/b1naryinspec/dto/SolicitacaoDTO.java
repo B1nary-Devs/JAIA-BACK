@@ -1,5 +1,7 @@
 package br.com.jaia.b1naryinspec.dto;
 
+import br.com.jaia.b1naryinspec.model.Segmento;
+
 public class SolicitacaoDTO {
     
     private Long solicitacaoId;
@@ -8,18 +10,22 @@ public class SolicitacaoDTO {
     private String nomeEmpresa;
     private String cnpj;
 
+    private Long segmento;
+
+    private Long ordemServico;
+
     public SolicitacaoDTO(){
 
     }
 
-    public SolicitacaoDTO(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, String cnpj){
-
+    public SolicitacaoDTO(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, String cnpj, Long segmento, Long ordemServico) {
         this.solicitacaoId = solicitacaoId;
         this.descricao = descricao;
         this.resultado = resultado;
         this.nomeEmpresa = nomeEmpresa;
         this.cnpj = cnpj;
-
+        this.segmento = segmento;
+        this.ordemServico = ordemServico;
     }
 
     public Long getSolicitacaoId() {
@@ -61,6 +67,29 @@ public class SolicitacaoDTO {
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
+
+
+    public Long getSegmento() {
+        return segmento;
+    }
+
+    public void setSegmento(Long segmento) {
+        this.segmento = segmento;
+    }
+
+
+    public Long getOrdemServico() {
+        return ordemServico;
+    }
+
+    public void setOrdemServico(Long ordemServico) {
+        this.ordemServico = ordemServico;
+    }
+
+
+
+
+
 
 
 }

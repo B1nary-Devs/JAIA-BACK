@@ -3,6 +3,9 @@ package br.com.jaia.b1naryinspec.service;
 import java.util.List;
 import java.util.Optional;
 
+import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
+import br.com.jaia.b1naryinspec.model.Segmento;
+import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,9 @@ public class SolicitacaoService {
     @Autowired
     private SolicitacaoRepository solicitacaoRepo;
 
+    @Autowired
+    private SegmentoRepository segmentoRepository;
+
     @Transactional
     public Solicitacao novaSolicitacao(SolicitacaoDTO solicitacaoDTO){
         if(solicitacaoDTO == null){
@@ -26,8 +32,14 @@ public class SolicitacaoService {
         Solicitacao solicitacao = new Solicitacao();
         solicitacao.setDescricao(solicitacaoDTO.getDescricao());
         solicitacao.setResultado(solicitacaoDTO.getResultado());
-        solicitacao.setNomeEmpresa(solicitacao.getNomeEmpresa());
+        solicitacao.setNomeEmpresa(solicitacaoDTO.getNomeEmpresa());
         solicitacao.setCnpj(solicitacaoDTO.getCnpj());
+
+        // Busque a categoria com base no segmentoId
+        Segmento segmento = segmentoRepository.findById(solicitacaoDTO.getSegmento())
+                .orElseThrow(() -> new ObjectNotFoundException("Segmento não encontrado"));
+
+        solicitacao.setSegmento(segmento);
 
         return solicitacaoRepo.save(solicitacao);
     }
