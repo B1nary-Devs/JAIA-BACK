@@ -30,8 +30,10 @@ public class OrdemServicoDTO {
 
     private List<Long> checklists;
 
+    private List<SolicitacaoDTO> solicitacoes;
 
-    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores, List<Long> checklists) {
+
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores, List<Long> checklists, List<SolicitacaoDTO> solicitacoes) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -40,7 +42,11 @@ public class OrdemServicoDTO {
         this.cliente = cliente;
         this.prestadores = prestadores;
         this.checklists = checklists;
+        this.solicitacoes = solicitacoes;
     }
+
+
+
 
     public OrdemServicoDTO() {
     }
@@ -108,4 +114,16 @@ public class OrdemServicoDTO {
     public void setChecklists(List<Long> checklists) {
         this.checklists = checklists;
     }
+
+
+    public List<SolicitacaoDTO> getSolicitacoes() {
+        return solicitacoes;
+    }
+
+    public void setSolicitacoes(List<SolicitacaoDTO> solicitacoes) {
+        this.solicitacoes = solicitacoes;
+    }
+
+
+
 }
