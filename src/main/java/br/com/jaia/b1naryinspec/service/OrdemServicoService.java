@@ -67,14 +67,16 @@ public class OrdemServicoService {
 
 
 
-        // Salve a ordem de serviço no banco de dados
         OrdemServico savedEntity = ordemServicoRepository.save(entity);
-        Optional<Solicitacao> optionalSolicitacao = solicitacaoRepository.findById(dto.getSolicitacao());
-        if (optionalSolicitacao.isPresent()) {
-            Solicitacao solicitacao = optionalSolicitacao.get();
-            entity.setSolicitacao(solicitacao); // Associe o cliente à ordem de serviço
-        } else {
-            throw new ObjectNotFoundException("Solicitação não encontrada com o ID: " + dto.getSolicitacao());
+        // Verifique se a solicitação existe. Se não, salve a ordem de serviço sem uma solicitação
+        if (dto.getSolicitacao() != null) {
+            Optional<Solicitacao> optionalSolicitacao = solicitacaoRepository.findById(dto.getSolicitacao());
+            if (optionalSolicitacao.isPresent()) {
+                Solicitacao solicitacao = optionalSolicitacao.get();
+                entity.setSolicitacao(solicitacao);
+            } else {
+                throw new ObjectNotFoundException("Solicitação não encontrada com o ID: " + dto.getSolicitacao());
+            }
         }
 
 
