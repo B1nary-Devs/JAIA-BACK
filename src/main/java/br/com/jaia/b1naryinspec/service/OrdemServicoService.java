@@ -69,7 +69,7 @@ public class OrdemServicoService {
 
         // Salve a ordem de serviço no banco de dados
         OrdemServico savedEntity = ordemServicoRepository.save(entity);
-        Optional<Solicitacao> optionalSolicitacao = Optional.ofNullable(solicitacaoRepository.findBySolicitacaoId(dto.getSolicitacao().getSolicitacaoId()));
+        Optional<Solicitacao> optionalSolicitacao = solicitacaoRepository.findById(dto.getSolicitacao());
         if (optionalSolicitacao.isPresent()) {
             Solicitacao solicitacao = optionalSolicitacao.get();
             entity.setSolicitacao(solicitacao); // Associe o cliente à ordem de serviço
