@@ -1,6 +1,7 @@
 package br.com.jaia.b1naryinspec.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -31,10 +32,9 @@ public class Solicitacao {
     private Segmento segmento;
 
 
-    @ManyToOne
-    @JoinColumn(name = "ordem_de_servico_id")
+    @OneToOne(mappedBy = "solicitacao", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
     private OrdemServico ordemServico;
-
 
     public Solicitacao(Long solicitacaoId, String descricao, String resultado, String nomeEmpresa, String cnpj, Segmento segmento, OrdemServico ordemServico) {
         this.solicitacaoId = solicitacaoId;

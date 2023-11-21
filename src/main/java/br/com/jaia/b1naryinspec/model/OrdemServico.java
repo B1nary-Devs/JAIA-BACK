@@ -53,12 +53,11 @@ public class OrdemServico {
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
+    @OneToOne
+    @JoinColumn(name = "solicitacao_id")
+    private Solicitacao solicitacao;
 
-    @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Solicitacao> solicitacoes = new ArrayList<>();
-
-
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<ChecklistPersonalizado> checklistPersonalizados, List<Solicitacao> solicitacoes) {
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<ChecklistPersonalizado> checklistPersonalizados, Solicitacao solicitacao) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -67,7 +66,7 @@ public class OrdemServico {
         this.cliente = cliente;
         this.prestador = prestador;
         this.checklistPersonalizados = checklistPersonalizados;
-        this.solicitacoes = solicitacoes;
+        this.solicitacao = solicitacao;
     }
 
 
@@ -142,15 +141,11 @@ public class OrdemServico {
     }
 
 
-    public List<Solicitacao> getSolicitacoes() {
-        return solicitacoes;
+    public Solicitacao getSolicitacao() {
+        return solicitacao;
     }
 
-    public void setSolicitacoes(List<Solicitacao> solicitacoes) {
-        this.solicitacoes = solicitacoes;
+    public void setSolicitacao(Solicitacao solicitacao) {
+        this.solicitacao = solicitacao;
     }
-
-
-
-
 }
