@@ -30,10 +30,17 @@ public class OrdemServicoDTO {
 
     private List<Long> checklists;
 
+<<<<<<< Updated upstream
     private List<SolicitacaoDTO> solicitacoes;
 
 
     public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores, List<Long> checklists, List<SolicitacaoDTO> solicitacoes) {
+=======
+    private Long solicitacao;
+
+
+    public OrdemServicoDTO(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Long cliente, List<Long> prestadores, List<Long> checklists, Long solicitacao) {
+>>>>>>> Stashed changes
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -116,12 +123,21 @@ public class OrdemServicoDTO {
     }
 
 
+<<<<<<< Updated upstream
     public List<SolicitacaoDTO> getSolicitacoes() {
         return solicitacoes;
     }
 
     public void setSolicitacoes(List<SolicitacaoDTO> solicitacoes) {
         this.solicitacoes = solicitacoes;
+=======
+    public Long getSolicitacao() {
+        return solicitacao;
+    }
+
+    public void setSolicitacao(Long solicitacao) {
+        this.solicitacao = solicitacao;
+>>>>>>> Stashed changes
     }
 
 

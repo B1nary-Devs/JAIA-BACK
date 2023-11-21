@@ -70,6 +70,7 @@ public class OrdemServicoService {
         // Salve a ordem de serviço no banco de dados
         OrdemServico savedEntity = ordemServicoRepository.save(entity);
 
+<<<<<<< Updated upstream
         // Associe as solicitações existentes à ordem de serviço
         if (dto.getSolicitacoes() != null && !dto.getSolicitacoes().isEmpty()) {
             List<Solicitacao> solicitacoes = new ArrayList<>();
@@ -83,6 +84,14 @@ public class OrdemServicoService {
                         );
             }
             savedEntity.getSolicitacoes().addAll(solicitacoes);
+=======
+        Optional<Solicitacao> optionalSolicitacao = solicitacaoRepository.findById(dto.getSolicitacao());
+        if (optionalSolicitacao.isPresent()) {
+            Solicitacao solicitacao = optionalSolicitacao.get();
+            entity.setSolicitacao(solicitacao); // Associe o cliente à ordem de serviço
+        } else {
+            throw new ObjectNotFoundException("Solicitação não encontrada com o ID: " + dto.getSolicitacao());
+>>>>>>> Stashed changes
         }
 
 

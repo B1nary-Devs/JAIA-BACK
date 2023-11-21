@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/OrdemServicoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/OrdemServicoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/SolicitacaoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/dto/SolicitacaoDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/OrdemServico.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/OrdemServico.java" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Segmento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Solicitacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/model/Solicitacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" afterDir="false" />
@@ -22,6 +23,9 @@
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/Solicitacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/model/Solicitacao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/SolicitacaoRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/repository/SolicitacaoRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SolicitacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/jaia/b1naryinspec/service/SolicitacaoService.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/jaia/b1naryinspec/service/OrdemServicoService.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +142,13 @@
       <workItem from="1698591195605" duration="107000" />
       <workItem from="1699097592555" duration="1133000" />
       <workItem from="1699122152219" duration="3370000" />
+<<<<<<< Updated upstream
+=======
+      <workItem from="1700536694630" duration="1683000" />
+      <workItem from="1700538732417" duration="130000" />
+      <workItem from="1700597136710" duration="1244000" />
+      <workItem from="1700601484749" duration="2844000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
