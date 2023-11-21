@@ -53,7 +53,7 @@ public class OrdemServico {
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
-    @OneToOne
+    @OneToOne(optional = true)
     @JoinColumn(name = "solicitacao_id")
     private Solicitacao solicitacao;
 
