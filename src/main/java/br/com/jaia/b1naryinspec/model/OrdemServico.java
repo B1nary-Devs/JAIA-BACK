@@ -54,15 +54,8 @@ public class OrdemServico {
     private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
 
-<<<<<<< Updated upstream
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Solicitacao> solicitacoes = new ArrayList<>();
-=======
-
-    @OneToOne
-    @JoinColumn(name = "solicitacao_id")
-    private Solicitacao solicitacao;
->>>>>>> Stashed changes
 
 
     public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<ChecklistPersonalizado> checklistPersonalizados, List<Solicitacao> solicitacoes) {
