@@ -53,8 +53,8 @@ public class OrdemServico {
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
-
-    @OneToOne(mappedBy = "solicitacao_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
+    @JoinColumn(name = "solicitacao_id")
     private Solicitacao solicitacao;
 
     public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<ChecklistPersonalizado> checklistPersonalizados, Solicitacao solicitacao) {
