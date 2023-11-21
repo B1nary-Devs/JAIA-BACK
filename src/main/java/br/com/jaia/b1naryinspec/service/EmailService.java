@@ -27,4 +27,27 @@ public class EmailService {
             mailSender.send(message);
 
     }
+
+
+    public void sendEmailCliente(String email, Long id) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        // message.setFrom("noreplybnaryinspec@gmail.com");
+        message.setTo(email);
+        String body = "Olá caro cliente!\n" +
+                "Seja bem-vindo(a) à plataforma de inspeções B1nary Inspec!\n" +
+                "Estamos felizes em informar que sua ordem de serviço está pronta para ser acompanhada. Você pode visualizar e baixar suas informações de ordem de serviço através do seguinte link: \n" +
+                "http://localhost:5173/solicitacoes/" + id + "\n" +
+                "Caso tenha alguma dúvida ou necessite de assistência adicional, não hesite em entrar em contato conosco.\n" +
+                "Atenciosamente,\n" +
+                "Equipe B1nary Inspec";
+
+        message.setText(body);
+        String subject = "B1nary Inspec: Ordem de Servico gerada com suscesso!";
+        message.setSubject(subject);
+
+        mailSender.send(message);
+    }
+
+
+
 }
