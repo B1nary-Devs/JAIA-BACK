@@ -28,4 +28,17 @@ public class EmailController {
 
         return ResponseEntity.ok("E-mail enviado");
     }
+
+    @PostMapping("/cliente")
+    public ResponseEntity<String> enviarEmailCliente(@RequestBody Map<String, String> requestBody){
+
+        Long id = Long.valueOf(requestBody.get("id"));
+        String email = requestBody.get("email");
+
+        emailService.sendEmailCliente(email, id);
+
+        return ResponseEntity.ok("E-mail enviado");
+    }
+
+
 }
