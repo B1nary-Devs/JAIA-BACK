@@ -70,7 +70,7 @@ public class SecurityConfiguration {
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/auth/**").permitAll();
-                    auth.requestMatchers("/ordemservico/cliente/**").permitAll();
+                    auth.requestMatchers("/solicitacao/**").permitAll();
                     auth.requestMatchers("/ordemservico/**").permitAll();
                     auth.requestMatchers("/admin/**").hasRole("ADMIN");
                     auth.requestMatchers("/user/**").hasAnyRole("ADMIN", "USER");
