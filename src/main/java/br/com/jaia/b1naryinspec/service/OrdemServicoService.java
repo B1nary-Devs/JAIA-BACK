@@ -3,16 +3,11 @@ package br.com.jaia.b1naryinspec.service;
 
 import br.com.jaia.b1naryinspec.dto.OrdemServicoDTO;
 import br.com.jaia.b1naryinspec.dto.PrestadorDto;
+import br.com.jaia.b1naryinspec.dto.SolicitacaoDTO;
 import br.com.jaia.b1naryinspec.exceptions.DataIntegrityViolationExceptionCustom;
 import br.com.jaia.b1naryinspec.exceptions.ObjectNotFoundException;
-import br.com.jaia.b1naryinspec.model.Cliente;
-import br.com.jaia.b1naryinspec.model.OrdemServico;
-import br.com.jaia.b1naryinspec.model.PrestadorServico;
-import br.com.jaia.b1naryinspec.model.Segmento;
-import br.com.jaia.b1naryinspec.repository.ClienteRepository;
-import br.com.jaia.b1naryinspec.repository.OrdemServicoRepository;
-import br.com.jaia.b1naryinspec.repository.PrestadorRepository;
-import br.com.jaia.b1naryinspec.repository.SegmentoRepository;
+import br.com.jaia.b1naryinspec.model.*;
+import br.com.jaia.b1naryinspec.repository.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +31,10 @@ public class OrdemServicoService {
 
     @Autowired
     private PrestadorRepository prestadorRepository;
+
+
+    @Autowired
+    private SolicitacaoRepository solicitacaoRepository;
 
 
 
@@ -66,8 +65,21 @@ public class OrdemServicoService {
         }
 
 
-        // Salve a ordem de serviço no banco de dados
+
+
         OrdemServico savedEntity = ordemServicoRepository.save(entity);
+        // Verifique se a solicitação existe. Se não, salve a ordem de serviço sem uma solicitação
+        if (dto.getSolicitacao() != null) {
+            Optional<Solicitacao> optionalSolicitacao = solicitacaoRepository.findById(dto.getSolicitacao());
+            if (optionalSolicitacao.isPresent()) {
+                Solicitacao solicitacao = optionalSolicitacao.get();
+                entity.setSolicitacao(solicitacao);
+            } else {
+                throw new ObjectNotFoundException("Solicitação não encontrada com o ID: " + dto.getSolicitacao());
+            }
+        }
+
+
 
         OrdemServicoDTO savedDTO = new OrdemServicoDTO();
         savedDTO.setServicoId(savedEntity.getServicoId());

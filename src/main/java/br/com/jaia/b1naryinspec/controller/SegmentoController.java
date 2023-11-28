@@ -32,6 +32,15 @@ public class SegmentoController {
 
     }
 
+
+    @GetMapping(value = "/todos")
+    public ResponseEntity<List<SegmentoDTO>> findAlltodos(){
+        List<Segmento> list = segmentoService.findAll();
+        List<SegmentoDTO> listDto = list.stream().map(obj -> new SegmentoDTO(obj)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
+
+    }
+
     @PostMapping
     public ResponseEntity<SegmentoDTO> insert(@RequestBody SegmentoDTO dto){
         dto = segmentoService.insert(dto);

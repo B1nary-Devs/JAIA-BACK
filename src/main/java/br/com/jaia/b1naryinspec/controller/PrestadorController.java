@@ -1,4 +1,5 @@
 
+
 package br.com.jaia.b1naryinspec.controller;
 
 import java.util.List;

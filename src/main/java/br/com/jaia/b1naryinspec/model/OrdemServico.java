@@ -8,7 +8,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -51,10 +53,11 @@ public class OrdemServico {
     @OneToMany(mappedBy = "ordemServico", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Set<ChecklistPersonalizado>  checklistPersonalizados;
 
-    public OrdemServico(Long servicoId, LocalDateTime dataAbertura,
-                        LocalDateTime dataFechamento, String status,
-                        String descricao, Cliente cliente, Set<PrestadorServico> prestador,
-                        Set<ChecklistPersonalizado> checklistPersonalizados) {
+    @OneToOne(optional = true)
+    @JoinColumn(name = "solicitacao_id")
+    private Solicitacao solicitacao;
+
+    public OrdemServico(Long servicoId, LocalDateTime dataAbertura, LocalDateTime dataFechamento, String status, String descricao, Cliente cliente, Set<PrestadorServico> prestador, Set<ChecklistPersonalizado> checklistPersonalizados, Solicitacao solicitacao) {
         this.servicoId = servicoId;
         this.dataAbertura = dataAbertura;
         this.dataFechamento = dataFechamento;
@@ -63,7 +66,12 @@ public class OrdemServico {
         this.cliente = cliente;
         this.prestador = prestador;
         this.checklistPersonalizados = checklistPersonalizados;
+        this.solicitacao = solicitacao;
     }
+
+
+
+
 
     public OrdemServico() {
     }
@@ -130,5 +138,14 @@ public class OrdemServico {
 
     public void setChecklistPersonalizados(Set<ChecklistPersonalizado> checklistPersonalizados) {
         this.checklistPersonalizados = checklistPersonalizados;
+    }
+
+
+    public Solicitacao getSolicitacao() {
+        return solicitacao;
+    }
+
+    public void setSolicitacao(Solicitacao solicitacao) {
+        this.solicitacao = solicitacao;
     }
 }

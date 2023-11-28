@@ -36,6 +36,16 @@ public class Segmento {
 
 
 
+    @OneToMany(mappedBy = "segmento", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Solicitacao> solicitacoes;
+
+
+
+
+
+
+
     public Segmento() {
     }
 
@@ -60,17 +70,21 @@ public class Segmento {
         this.nome = nome;
     }
 
-    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<ChecklistPersonalizado> checklistPersonalizadosList, Set<PrestadorServico> prestadorServicos) {
+
+    public Segmento(Long id, String nome, Set<Checklist> checklistList, Set<ChecklistPersonalizado> checklistPersonalizadosList, Set<PrestadorServico> prestadorServicos, Set<Solicitacao> solicitacoes) {
         this.id = id;
         this.nome = nome;
         this.checklistList = checklistList;
         this.checklistPersonalizadosList = checklistPersonalizadosList;
         this.prestadorServicos = prestadorServicos;
+        this.solicitacoes = solicitacoes;
     }
 
     public Set<Checklist> getChecklistList() {
         return checklistList;
     }
+
+
 
     public void setChecklistList(Set<Checklist> checklistList) {
         this.checklistList = checklistList;
@@ -89,6 +103,16 @@ public class Segmento {
     public void setPrestadorServicos(Set<PrestadorServico> prestadorServicos) {
         this.prestadorServicos = prestadorServicos;
     }
+
+
+    public Set<Solicitacao> getSolicitacoes() {
+        return solicitacoes;
+    }
+
+    public void setSolicitacoes(Set<Solicitacao> solicitacoes) {
+        this.solicitacoes = solicitacoes;
+    }
+
 
 
 
